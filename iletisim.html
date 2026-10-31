@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>İletişim | Akik Halı</title>
+  <meta name="description" content="Akik Halı iletişim: telefon, WhatsApp, adres ve harita. Contact Akik Halı for wholesale carpets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main>
+
+  <section class="sayfa-bas">
+    <div class="sayfa-bas-gorsel" style="background-image:url(img/hero/2.webp)"></div>
+    <div class="kap sayfa-bas-ic">
+      <p class="yol-iz"><a href="index.html"><span data-l="en">Home</span><span data-l="tr">Ana sayfa</span></a> / <span data-l="en">Contact</span><span data-l="tr">İletişim</span></p>
+      <h1><span data-l="en">Contact</span><span data-l="tr">İletişim</span></h1>
+      <p>
+        <span data-l="en">The fastest way to reach us is WhatsApp.</span>
+        <span data-l="tr">Bize en hızlı WhatsApp'tan ulaşabilirsiniz.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="bolum bolum-sayfa">
+    <div class="kap">
+      <div class="iletisim-izgara">
+        <div>
+          <form id="mesaj-formu" class="form">
+            <input name="ad" required data-ph-en="Name / Company" data-ph-tr="Adınız / Firma adınız">
+            <input name="ulke" data-ph-en="Country" data-ph-tr="Şehir / Ülke">
+            <textarea name="mesaj" rows="4" required data-ph-en="Which products and quantities?" data-ph-tr="Hangi ürünler, kaç adet?"></textarea>
+            <button class="btn btn-wa" type="submit"><span data-l="en">Send via WhatsApp</span><span data-l="tr">WhatsApp ile gönder</span></button>
+          </form>
+
+          <dl class="bilgi-listesi">
+            <div><dt data-ayar="yetkiliGorev"></dt><dd><span data-ayar="yetkili"></span><br><a data-satis-tel></a> · <a href="#" data-wa-tr="Merhaba Emin Bey, bilgi almak istiyorum." data-wa-en="Hello, I would like to get information.">WhatsApp</a></dd></div>
+            <div><dt><span data-l="en">Address</span><span data-l="tr">Adres</span></dt><dd><span data-ayar="adres"></span><br>
+              <a class="btn-yazi" data-yol-tarifi target="_blank" rel="noopener"><span data-l="en">Get directions →</span><span data-l="tr">Yol tarifi al →</span></a></dd></div>
+            <div><dt><span data-l="en">Phone</span><span data-l="tr">Telefon</span></dt><dd><a data-tel></a> · <a data-tel2></a></dd></div>
+            <div><dt><span data-l="en">Hours</span><span data-l="tr">Çalışma saatleri</span></dt><dd data-ayar="calismaSaatleri"></dd></div>
+          </dl>
+        </div>
+        <div>
+          <iframe class="harita" data-harita title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sss" class="bolum bolum-gri">
+    <div class="kap dar">
+      <div class="bolum-baslik"><h2><span data-l="en">FAQ</span><span data-l="tr">Sık sorulan sorular</span></h2></div>
+
+      <div data-l="en">
+        <details><summary>What is your minimum order for export?</summary><p data-ayar="ihracat.moq"></p></details>
+        <details><summary>Which Incoterms do you work with?</summary><p data-ayar="ihracat.teslimSekli"></p></details>
+        <details><summary>What are the payment terms?</summary><p data-ayar="ihracat.odeme"></p></details>
+        <details><summary>How long does an order take?</summary><p data-ayar="ihracat.sure"></p></details>
+        <details><summary>Can we get samples before ordering?</summary><p>Yes, we can send samples as long as the sample and shipping costs are covered by the buyer.</p></details>
+        <details><summary>Can we visit your warehouse and showroom?</summary><p>Of course. Contact us to arrange a visit; we can help with hotel and transfer.</p></details>
+      </div>
+
+      <div data-l="tr">
+        <details><summary>Satışlarınız faturalı mı?</summary><p data-ayar="yurtici.fatura"></p></details>
+        <details><summary>Kaç adetten itibaren toptan fiyat veriyorsunuz?</summary><p data-ayar="yurtici.minimum"></p></details>
+        <details><summary>Fiyatları neden sitede yazmıyorsunuz?</summary><p>Toptan fiyatlar miktara, ödeme şekline ve döneme göre değişir. WhatsApp'tan yazdığınızda güncel listeyi hemen gönderiyoruz.</p></details>
+        <details><summary>Kargo ücreti kime ait?</summary><p data-ayar="yurtici.kargo"></p></details>
+        <details><summary>Ödeme seçenekleri nelerdir?</summary><p data-ayar="yurtici.odeme"></p></details>
+        <details><summary>Numune gönderiyor musunuz?</summary><p>Evet, numune ve kargo ücreti karşılandığı sürece numune gönderebiliriz.</p></details>
+        <details><summary>Özel ebat veya özel desen üretiyor musunuz?</summary><p>Belirli adetlerin üzerinde özel ebat, özel desen ve otel/proje siparişleri alıyoruz.</p></details>
+        <details><summary>Yurtdışına satış yapıyor musunuz?</summary><p>Evet, ihracat ana işimiz. Koşullar için <a href="ihracat.html">İhracat</a> sayfasına bakın.</p></details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/ayarlar.js"></script>
+<script src="js/urunler.js"></script>
+<script src="js/sablon.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

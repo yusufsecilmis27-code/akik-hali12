@@ -1,0 +1,38 @@
+SİTEYİ KENDİNİZE GÖRE DÜZENLEME
+
+Sayfalar: index.html (ana sayfa), urunler.html, ihracat.html, yurtici.html,
+hakkimizda.html, iletisim.html, kvkk.html.
+Header, footer ve menü her sayfada ortaktır: js\sablon.js
+
+Site iki dillidir (EN / TR). Türkçe tarayıcıyla girenler Türkçe, diğer herkes
+İngilizce görür; sağ üstteki EN / TR düğmesiyle değiştirilebilir.
+
+1) Firma bilgileri, girişte dönen fotoğraflar (heroUrunler), rakamlar,
+   ihracat ülkeleri, ihracat ve Türkiye koşulları, sosyal medya:
+   js\ayarlar.js dosyasını Not Defteri ile açıp
+   tırnak içlerini değiştirin. { tr: "...", en: "..." } olan yerlerde iki dili de yazın.
+
+2) Ürünler: js\urunler.js. Her ürün bir { ... } bloğudur.
+   Fotoğrafları img\urunler\ klasörüne koyup galeriye ekleyin:
+   gorseller: ["img/urunler/AK-1024-1.jpg", "img/urunler/AK-1024-yakin.jpg", ...]
+   İlk fotoğraf kartta, hepsi ürüne tıklayınca açılan galeride görünür.
+   Hav yüksekliği, ağırlık, taban, menşei ve açıklama da yazılabilir.
+   Her ürünün kendi linki var (örn. firmaadi.com/#urun=AK-1024);
+   ürün penceresindeki "Paylaş" butonu bu linki verir.
+
+3) Hakkımızda fotoğrafları: index.html içinde "foto-yer" yazan kutuları
+   <img src="img/depo1.jpg" alt="Depo"> ile değiştirin.
+
+4) PDF katalog: katalog.pdf adlı dosyayı bu klasöre koyun.
+
+5) Renkler: css\style.css dosyasının en üstündeki değerler.
+
+6) Google Analytics: index.html başındaki açıklamaya bakın.
+
+7) KVKK metni genel bir şablondur; yayına almadan önce avukat veya
+   mali müşavirinize kontrol ettirin.
+
+YAYINA ALMA
+Alan adı (örn. firmaadi.com) ve hosting satın alın, bu klasördeki tüm
+dosyaları hostingin "public_html" klasörüne yükleyin. info@ ve export@
+e-postaları hosting paketinden açılır. Google İşletme Profili de açın.

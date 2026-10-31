@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Akik Halı | Toptan Halı – Wholesale Carpets from Turkey</title>
+  <meta name="description" content="Akik Halı: toptan halı ve cami halısı. Wholesale machine-made carpets and mosque carpets from Turkey. Export worldwide and wholesale across Türkiye.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- GOOGLE ANALYTICS: analytics.google.com'dan aldığınız G-XXXXXXX kodunu iki yere yazıp yorum işaretlerini kaldırın.
+       Aynı kodu diğer sayfaların <head> kısmına da ekleyin.
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  -->
+</head>
+<body>
+
+<main>
+
+  <!-- GİRİŞ: dönen fotoğraflar js/ayarlar.js içindeki "heroUrunler" listesinden gelir -->
+  <section class="hero" id="hero" aria-roledescription="carousel">
+    <div class="hero-slaytlar" id="hero-slaytlar"></div>
+    <div class="hero-perde"></div>
+
+    <div class="kap hero-ic">
+      <div class="hero-metin">
+        <p class="cip cip-koyu"><span class="nokta"></span>
+          <span data-l="en">Serving you for over 10 years</span>
+          <span data-l="tr">10 yılı aşkındır hizmetinizdeyiz</span>
+        </p>
+        <h1>
+          <span data-l="en">Akik Halı<br>Selling wonders to the world</span>
+          <span data-l="tr">Akik Halı<br>Dünyaya harikalar satıyoruz</span>
+        </h1>
+        <p class="hero-alt">
+          <span data-l="en">Machine-made rugs and mosque carpets for importers, retailers, mosques and hotel projects. Container loads abroad, fast wholesale delivery across Türkiye.</span>
+          <span data-l="tr">Mağazalar, ithalatçılar, camiler ve otel projeleri için makine halısı ve cami halısı. Yurtdışına konteyner, Türkiye'ye hızlı toptan sevkiyat.</span>
+        </p>
+        <div class="butonlar">
+          <a href="#" class="btn btn-wa" data-wa-en="Hello, I would like to receive your wholesale price list." data-wa-tr="Merhaba, toptan fiyat listesi almak istiyorum.">
+            <span data-l="en">Get price list</span><span data-l="tr">Fiyat listesi al</span></a>
+          <a href="urunler.html" class="btn btn-cam">
+            <span data-l="en">View collection</span><span data-l="tr">Ürünleri gör</span> →</a>
+        </div>
+      </div>
+
+      <div class="hero-alt-bar">
+        <dl class="rakamlar">
+          <div><dt data-ayar="ihracatUlkeSayisi"></dt><dd><span data-l="en">countries</span><span data-l="tr">ülkeye ihracat</span></dd></div>
+          <div><dt data-ayar="yillikKonteyner"></dt><dd><span data-l="en">containers / year</span><span data-l="tr">konteyner / yıl</span></dd></div>
+          <div><dt data-ayar="desenSayisi"></dt><dd><span data-l="en">designs in stock</span><span data-l="tr">stokta desen</span></dd></div>
+        </dl>
+        <div class="hero-secim">
+          <button class="hero-urun" id="hero-urun" type="button"></button>
+          <div class="hero-kucuk" id="hero-kucuk" role="tablist"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAZARLAR -->
+  <section class="pazarlar" aria-label="Markets">
+    <div class="kayan"><div class="kayan-ic" id="ulkeler"></div></div>
+  </section>
+
+  <!-- İHRACAT / TÜRKİYE -->
+  <section class="bolum">
+    <div class="kap iki-yol">
+      <a href="ihracat.html" class="yol yol-koyu">
+        <span class="yol-etiket">01</span>
+        <h2><span data-l="en">Export</span><span data-l="tr">İhracat</span></h2>
+        <p><span data-l="en">Container orders, FOB / CIF, full export documents, private label.</span>
+           <span data-l="tr">Konteyner siparişi, FOB / CIF, tüm ihracat belgeleri, özel etiket.</span></p>
+        <span class="ok">→</span>
+      </a>
+      <a href="yurtici.html" class="yol">
+        <span class="yol-etiket">02</span>
+        <h2><span data-l="en">Domestic</span><span data-l="tr">Yurt İçi</span></h2>
+        <p><span data-l="en">Invoiced sales to stores, mixed orders, delivery to 81 provinces.</span>
+           <span data-l="tr">Mağazalara faturalı satış, karışık sipariş, 81 ile sevkiyat.</span></p>
+        <span class="ok">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- YENİ GELENLER -->
+  <section id="yeni" class="bolum bolum-ust-yok">
+    <div class="kap">
+      <div class="bolum-baslik">
+        <h2><span data-l="en">New arrivals</span><span data-l="tr">Yeni gelenler</span></h2>
+        <div class="sekmeler" role="tablist">
+          <button class="sekme aktif" data-sekme="seri" role="tab"><span data-l="en">Series production</span><span data-l="tr">Seri üretim</span></button>
+          <button class="sekme" data-sekme="spot" role="tab"><span data-l="en">Stock rugs</span><span data-l="tr">Spot halı</span></button>
+        </div>
+      </div>
+      <div id="vitrin" class="izgara"></div>
+      <p class="tumu"><a href="urunler.html" class="btn btn-ikincil" id="vitrin-tumu"><span data-l="en">See all</span><span data-l="tr">Tümünü gör</span> →</a></p>
+    </div>
+  </section>
+
+  <!-- KISA TANITIM -->
+  <section class="bolum bolum-gri">
+    <div class="kap ikili">
+      <div>
+        <h2><span data-l="en">Over 10 years of carpets</span><span data-l="tr">10 yılı aşkın halı tecrübesi</span></h2>
+        <p>
+          <span data-l="en"><b data-ayar="firmaAdi"></b> supplies carpets to <span data-ayar="ihracatUlkeSayisi"></span> countries and to wholesale customers across Türkiye from its own warehouse.</span>
+          <span data-l="tr"><b data-ayar="firmaAdi"></b>, kendi deposundan <span data-ayar="ihracatUlkeSayisi"></span> ülkeye ve Türkiye genelindeki toptan müşterilerine halı tedarik ediyor.</span>
+        </p>
+        <div class="butonlar">
+          <a href="hakkimizda.html" class="btn btn-ikincil"><span data-l="en">About us</span><span data-l="tr">Hakkımızda</span> →</a>
+          <a href="iletisim.html" class="btn btn-ikincil"><span data-l="en">Contact</span><span data-l="tr">İletişim</span> →</a>
+        </div>
+      </div>
+      <div class="kosul-izgara kosul-acik kosul-iki">
+        <div class="kosul"><h3><span data-l="en">Invoiced sales</span><span data-l="tr">Faturalı satış</span></h3><p data-ayar="yurtici.fatura"></p></div>
+        <div class="kosul"><h3><span data-l="en">Export documents</span><span data-l="tr">İhracat belgeleri</span></h3><p data-ayar="ihracat.belgeler"></p></div>
+        <div class="kosul"><h3><span data-l="en">Custom production</span><span data-l="tr">Özel üretim</span></h3><p data-ayar="ihracat.ozelEtiket"></p></div>
+        <div class="kosul"><h3><span data-l="en">Fast shipping</span><span data-l="tr">Hızlı sevkiyat</span></h3><p data-ayar="ihracat.sure"></p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/ayarlar.js"></script>
+<script src="js/urunler.js"></script>
+<script src="js/sablon.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
