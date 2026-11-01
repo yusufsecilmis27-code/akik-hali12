@@ -62,7 +62,7 @@ const URUNLER = [
 
   { kod: "AKS-004", ad: "Dijital Baskı Kaymaz Taban", adEn: "Digital Print Non-Slip", tur: "Makine Halısı", malzeme: "", renk: "",
     ebatlar: ["İstenilen ebatta üretim"], etiket: "seri", desenli: true,
-    gorseller: ["img/seri/dijital-01.jpg", "img/seri/dijital-02.jpg", "img/seri/dijital-03.jpg",
+    gorseller: ["img/seri/dijital-03.jpg", "img/seri/dijital-01.jpg", "img/seri/dijital-02.jpg",
       "img/seri/dijital-04.jpg", "img/seri/dijital-05.jpg"],
     agirlik: "İstenilen ağırlıkta üretim", taban: "Kaymaz taban",
     aciklama: { tr: "Dijital baskı, kaymaz tabanlı halı. İstenilen tüm ebatlarda, istenilen ağırlık ve kalitede üretim sağlanır.", en: "Digital print rug with non-slip backing. Produced in any size, weight and quality you need." } },
