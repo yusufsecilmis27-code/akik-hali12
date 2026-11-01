@@ -84,7 +84,7 @@ const URUNLER = [
 
   { kod: "SPT-004", ad: "Loop Sisal", adEn: "Loop Sisal", tur: "Makine Halısı", malzeme: "", renk: "",
     ebatlar: ["160x230", "200x290"], etiket: "spot", desenli: true,
-    gorseller: ["img/spot/loop-01.jpg", "img/spot/loop-02.jpg", "img/spot/loop-03.jpg",
-      "img/spot/loop-04.jpg", "img/spot/loop-05.jpg", "img/spot/loop-06.jpg"],
+    gorseller: ["img/spot/loop-04.jpg", "img/spot/loop-01.jpg", "img/spot/loop-02.jpg",
+      "img/spot/loop-03.jpg", "img/spot/loop-05.jpg", "img/spot/loop-06.jpg"],
     aciklama: { tr: "Spot halı. İlmekli (loop) dokulu, kabartma desenli sisal görünümlü halı.", en: "Stock rug. Loop-woven sisal-look rug with embossed patterns." } }
 ];
