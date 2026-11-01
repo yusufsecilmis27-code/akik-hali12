@@ -63,8 +63,8 @@ const URUNLER = [
 
   { kod: "AKS-005", ad: "Cross Dokuma", adEn: "Cross Weave", tur: "Makine Halısı", malzeme: "", renk: "",
     ebatlar: ["200x300"], etiket: "seri", desenli: true,
-    gorseller: ["img/seri/cross-01.jpg", "img/seri/cross-02.jpg", "img/seri/cross-03.jpg",
-      "video/cross-1.mp4", "video/cross-2.mp4"],
+    gorseller: ["video/cross-1.mp4", "img/seri/cross-01.jpg", "img/seri/cross-02.jpg", "img/seri/cross-03.jpg",
+      "video/cross-2.mp4"],
     agirlik: "2.000 g/m²",
     aciklama: { tr: "Seri üretim. Cross dokuma, eskitme görünümlü klasik desenli halı.", en: "Series production. Cross-woven rug with a distressed look and classic designs." } },
 

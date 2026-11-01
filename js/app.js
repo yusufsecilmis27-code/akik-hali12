@@ -108,7 +108,11 @@
   const fotolar = (u) => (u.gorseller && u.gorseller.length ? u.gorseller : u.gorsel ? [u.gorsel] : []);
   const resimler = (u) => fotolar(u).filter((s) => !videoMu(s));
   const ad = (u) => (dil === "en" ? u.adEn || u.ad : u.ad);
-  const gorsel = (u) => { const f = resimler(u)[0]; return f ? `<img src="${f}" alt="${u.ad} ${u.kod}" loading="lazy">` : yerTutucu(u); };
+  // Listenin ilki video ise kartta kapak olarak sessiz, döngülü video oynar
+  const gorsel = (u) => {
+    const ilk = fotolar(u)[0];
+    if (ilk && videoMu(ilk)) return `<video class="kapak-video" src="${ilk}" muted autoplay loop playsinline preload="metadata" aria-label="${u.ad}"></video>`;
+    const f = resimler(u)[0]; return f ? `<img src="${f}" alt="${u.ad} ${u.kod}" loading="lazy">` : yerTutucu(u); };
 
   function kart(u) {
     const M = METIN[dil];
