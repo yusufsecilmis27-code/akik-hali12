@@ -68,6 +68,12 @@ const URUNLER = [
     agirlik: "2.000 g/m²",
     aciklama: { tr: "Seri üretim. Cross dokuma, eskitme görünümlü klasik desenli halı.", en: "Series production. Cross-woven rug with a distressed look and classic designs." } },
 
+  { kod: "AKS-006", ad: "Kaymaz Taban Rulo", adEn: "Non-Slip Roll Carpet", tur: "Makine Halısı", malzeme: "", renk: "",
+    ebatlar: ["80 cm rulo", "100 cm rulo", "120 cm rulo", "150 cm rulo", "200 cm rulo", "250 cm rulo", "300 cm rulo"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/rulo-01.jpg", "img/seri/rulo-02.jpg", "img/seri/rulo-03.jpg", "img/seri/rulo-04.jpg", "img/seri/rulo-05.jpg", "img/seri/rulo-06.jpg", "img/seri/rulo-07.jpg", "img/seri/rulo-08.jpg", "img/seri/rulo-09.jpg", "img/seri/rulo-10.jpg", "img/seri/rulo-11.jpg", "img/seri/rulo-12.jpg", "img/seri/rulo-13.jpg", "img/seri/rulo-14.jpg", "img/seri/rulo-15.jpg", "img/seri/rulo-16.jpg", "img/seri/rulo-17.jpg", "img/seri/rulo-18.jpg"],
+    agirlik: "950 / 1.100 / 1.200 / 1.500 g/m²", taban: "Kaymaz taban",
+    aciklama: { tr: "Seri üretim, kaymaz tabanlı rulo halı. İstenilen ölçü ve ağırlıkta üretim sağlanır.", en: "Series production non-slip roll carpet. Produced in any size and weight you need." } },
+
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
