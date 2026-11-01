@@ -54,6 +54,12 @@ const URUNLER = [
     agirlik: "2.300 g/m²",
     aciklama: { tr: "Spot halı. Klasik ve modern desen seçenekleriyle polyester makine halısı.", en: "Stock rug. Polyester machine-made rug in classic and modern designs." } },
 
+  { kod: "SPT-002", ad: "Sisal", adEn: "Sisal", tur: "Makine Halısı", malzeme: "", renk: "",
+    ebatlar: ["80x150", "80x300", "100x200", "120x180", "160x230", "200x290"], etiket: "spot", desenli: true,
+    gorseller: ["img/spot/sisal-01.webp", "img/spot/sisal-02.webp", "img/spot/sisal-03.webp", "img/spot/sisal-04.webp",
+      "img/spot/sisal-05.webp", "img/spot/sisal-06.webp", "img/spot/sisal-07.webp"],
+    aciklama: { tr: "Spot halı. Hasır dokulu, modern ve geometrik desenli sisal görünümlü halı.", en: "Stock rug. Flat-woven sisal-look rug in modern and geometric designs." } },
+
   // AKİK YENİ KOLEKSİYON
   { kod: "AK-101", ad: "Akik Madalyon Füme", adEn: "Akik Medallion Smoke", tur: "Makine Halısı", malzeme: "", renk: "Gri",
     ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-101.jpg"], aciklama: AKIK_ACIKLAMA },
