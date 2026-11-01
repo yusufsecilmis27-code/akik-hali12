@@ -57,7 +57,7 @@ const URUNLER = [
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
     ebatlar: ["160x230", "200x290", "240x340"], etiket: "spot", desenli: true,
-    gorseller: ["img/spot/klasik-01.webp", "img/spot/klasik-02.webp", "img/spot/klasik-03.webp",
+    gorseller: ["img/spot/klasik-03.webp", "img/spot/klasik-01.webp", "img/spot/klasik-02.webp",
       "img/spot/klasik-04.webp", "img/spot/klasik-05.webp", "img/spot/klasik-06.webp"],
     agirlik: "2.300 g/m²",
     aciklama: { tr: "Spot halı. Klasik ve modern desen seçenekleriyle polyester makine halısı.", en: "Stock rug. Polyester machine-made rug in classic and modern designs." } },
