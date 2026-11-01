@@ -56,8 +56,8 @@ const URUNLER = [
 
   { kod: "SPT-002", ad: "Sisal", adEn: "Sisal", tur: "Makine Halısı", malzeme: "", renk: "",
     ebatlar: ["80x150", "80x300", "100x200", "120x180", "160x230", "200x290"], etiket: "spot", desenli: true,
-    gorseller: ["img/spot/sisal-01.webp", "img/spot/sisal-02.webp", "img/spot/sisal-03.webp", "img/spot/sisal-04.webp",
-      "img/spot/sisal-05.webp", "img/spot/sisal-06.webp", "img/spot/sisal-07.webp"],
+    gorseller: ["img/spot/sisal-07.webp", "img/spot/sisal-01.webp", "img/spot/sisal-02.webp", "img/spot/sisal-03.webp",
+      "img/spot/sisal-04.webp", "img/spot/sisal-05.webp", "img/spot/sisal-06.webp"],
     aciklama: { tr: "Spot halı. Hasır dokulu, modern ve geometrik desenli sisal görünümlü halı.", en: "Stock rug. Flat-woven sisal-look rug in modern and geometric designs." } },
 
   { kod: "SPT-003", ad: "Kampanyalık Polyester", adEn: "Campaign Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
