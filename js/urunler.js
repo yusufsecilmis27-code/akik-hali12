@@ -10,7 +10,7 @@
              (Bu listelerin İngilizcesi app.js içindeki CEVIRI'de. Yeni bir tür/renk eklerseniz oraya da ekleyin.)
   ebatlar  : Mevcut ebatlar (cm)
   etiket   : "seri" (seri üretim), "spot" (spot halı) veya "" (boş). İlk 4 seri ve ilk 4 spot ürün "Yeni gelenler"de görünür.
-  gorseller: Fotoğraflar (img/urunler klasöründe). İlki kartta görünür, hepsi ürün galerisinde. Örnek:
+  gorseller: Fotoğraflar ve videolar (.mp4, video klasöründe). İlk fotoğraf kartta görünür, hepsi ürün galerisinde. Örnek:
              gorseller: ["img/urunler/AK-101.jpg", "img/urunler/AK-101-yakin.jpg", "img/urunler/AK-101-arka.jpg"]
              Önerilen sıra: genel görünüm, yakın çekim doku, arka yüz, ortamda.
   renkler  : Fotoğraf yoksa gösterilen yer tutucunun renkleri
@@ -60,6 +60,13 @@ const URUNLER = [
       "img/seri/dijital-04.jpg", "img/seri/dijital-05.jpg"],
     agirlik: "İstenilen ağırlıkta üretim", taban: "Kaymaz taban",
     aciklama: { tr: "Dijital baskı, kaymaz tabanlı halı. İstenilen tüm ebatlarda, istenilen ağırlık ve kalitede üretim sağlanır.", en: "Digital print rug with non-slip backing. Produced in any size, weight and quality you need." } },
+
+  { kod: "AKS-005", ad: "Cross Dokuma", adEn: "Cross Weave", tur: "Makine Halısı", malzeme: "", renk: "",
+    ebatlar: ["200x300"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/cross-01.jpg", "img/seri/cross-02.jpg", "img/seri/cross-03.jpg",
+      "video/cross-1.mp4", "video/cross-2.mp4"],
+    agirlik: "2.000 g/m²",
+    aciklama: { tr: "Seri üretim. Cross dokuma, eskitme görünümlü klasik desenli halı.", en: "Series production. Cross-woven rug with a distressed look and classic designs." } },
 
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.

@@ -21,7 +21,7 @@
       bosVitrin: "Products for this section will be added soon.",
       fiyatSor: "Get info", kopyalandi: "✓",
       wa: (u) => `Hello, I would like to get information about ${u.adEn || u.ad}.`,
-      desen: (n) => "Design " + n, desenSayi: (n) => n + " designs", secili: "Selected",
+      desen: (n) => "Design " + n, desenSayi: (n) => n + " designs", secili: "Selected", video: "Video",
       form: (d) => `Hello, I am ${d.ad}${d.ulke ? " from " + d.ulke : ""}.\n${d.mesaj}`,
       benzer: "Similar products",
       oz: { malzeme: "Material", iplik: "Yarn type", renk: "Colour", hav: "Pile", siklik: "Density", agirlik: "Weight per m²", taban: "Backing", mensei: "Origin" },
@@ -32,7 +32,7 @@
       bosVitrin: "Bu bölüme yakında ürün eklenecek.",
       fiyatSor: "Bilgi al", kopyalandi: "✓",
       wa: (u) => `Merhaba, ${u.ad} hakkında bilgi almak istiyorum.`,
-      desen: (n) => "Desen " + n, desenSayi: (n) => n + " desen", secili: "Seçili",
+      desen: (n) => "Desen " + n, desenSayi: (n) => n + " desen", secili: "Seçili", video: "Video",
       form: (d) => `Merhaba, ben ${d.ad}${d.ulke ? " (" + d.ulke + ")" : ""}.\n${d.mesaj}`,
       benzer: "Benzer ürünler",
       oz: { malzeme: "Malzeme", iplik: "İplik türü", renk: "Renk", hav: "Hav", siklik: "Sıklık", agirlik: "m² ağırlığı", taban: "Taban", mensei: "Menşei" },
@@ -103,18 +103,21 @@
     const ic = tur === 3 ? `<span style="position:absolute;left:18%;right:18%;top:60%;bottom:12%;background:${a};border-radius:3px;transform:perspective(300px) rotateX(45deg);box-shadow:0 10px 20px #0003"></span>` : "";
     return `<div class="yer-tutucu${tur ? " yt-cesit" : ""}" role="img" aria-label="${u.ad}" style="background:${stil}">${ic}</div>`;
   }
+  // gorseller listesinde fotoğraf ve video (.mp4) olabilir; kapak, hero ve desen sayısı sadece fotoğraflardan
+  const videoMu = (src) => /\.(mp4|webm|mov)$/i.test(src);
   const fotolar = (u) => (u.gorseller && u.gorseller.length ? u.gorseller : u.gorsel ? [u.gorsel] : []);
+  const resimler = (u) => fotolar(u).filter((s) => !videoMu(s));
   const ad = (u) => (dil === "en" ? u.adEn || u.ad : u.ad);
-  const gorsel = (u) => { const f = fotolar(u)[0]; return f ? `<img src="${f}" alt="${u.ad} ${u.kod}" loading="lazy">` : yerTutucu(u); };
+  const gorsel = (u) => { const f = resimler(u)[0]; return f ? `<img src="${f}" alt="${u.ad} ${u.kod}" loading="lazy">` : yerTutucu(u); };
 
   function kart(u) {
     const M = METIN[dil];
     const rozet = u.etiket === "spot" ? `<span class="rozet rozet-son">${M.grup.spot}</span>`
       : u.etiket === "seri" ? `<span class="rozet rozet-seri">${M.grup.seri}</span>` : "";
-    const n = fotolar(u).length;
+    const n = resimler(u).length, v = fotolar(u).length - n;
     return `<article class="urun">
       <button class="urun-ac" data-urun="${u.kod}" aria-label="${ad(u)} ${u.kod}">
-        <div class="urun-gorsel">${gorsel(u)}${rozet}${n > 1 ? `<span class="foto-sayisi">${u.desenli ? M.desenSayi(n) : n + " ◫"}</span>` : ""}</div>
+        <div class="urun-gorsel">${gorsel(u)}${rozet}${n > 1 || v ? `<span class="foto-sayisi">${n > 1 ? (u.desenli ? M.desenSayi(n) : n + " ◫") : ""}${n > 1 && v ? " · " : ""}${v ? "▶ " + M.video : ""}</span>` : ""}</div>
         <div class="urun-ic">
           <div class="urun-ust"><h3>${ad(u)}</h3><span class="urun-kod">${u.kod}</span></div>
           <p class="urun-bilgi">${[u.tur, u.malzeme, u.renk].filter(Boolean).map(cevir).join(" · ")}</p>
@@ -136,7 +139,7 @@
     : ((A.heroUrunler || []).map((k) => U.find((u) => u.kod === k)).filter((u) => u && fotolar(u).length).length
         ? (A.heroUrunler || []).map((k) => U.find((u) => u.kod === k)).filter((u) => u && fotolar(u).length)
         : U.filter((u) => fotolar(u).length).slice(0, 5)
-      ).map((u) => ({ gorsel: fotolar(u)[0], mobil: fotolar(u)[0], urun: u }));
+      ).map((u) => ({ gorsel: resimler(u)[0], mobil: resimler(u)[0], urun: u }));
   let heroNo = 0, heroZaman = null;
   const heroSure = (A.heroSure || 5) * 1000;
 
@@ -264,9 +267,13 @@
     const u = acikUrun, M = METIN[dil];
     const f = fotolar(u);
     $("d-serit").innerHTML = f.length
-      ? f.map((src, i) => `<div class="slayt"><img src="${src}" alt="${ad(u)} ${i + 1}"${i ? ' loading="lazy"' : ""}></div>`).join("")
+      ? f.map((src, i) => videoMu(src)
+          ? `<div class="slayt slayt-video"><video src="${src}" muted playsinline loop controls preload="metadata"></video></div>`
+          : `<div class="slayt"><img src="${src}" alt="${ad(u)} ${i + 1}"${i ? ' loading="lazy"' : ""}></div>`).join("")
       : `<div class="slayt">${yerTutucu(u)}</div>`;
-    $("d-kucuk").innerHTML = f.map((src, i) => `<button data-foto="${i}" aria-label="${i + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join("");
+    $("d-kucuk").innerHTML = f.map((src, i) => videoMu(src)
+      ? `<button data-foto="${i}" aria-label="Video" class="kucuk-video"><video src="${src}#t=0.5" muted preload="metadata"></video><span>▶</span></button>`
+      : `<button data-foto="${i}" aria-label="${i + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join("");
     pencere.querySelector(".galeri-buyut").hidden = !f.length;
     // Benzer ürünler: aynı türden 4 ürün
     const benzer = U.filter((x) => x.kod !== u.kod && x.tur === u.tur).slice(0, 4);
@@ -289,9 +296,10 @@
   function waGuncelle() {
     const u = acikUrun, M = METIN[dil];
     if (!u) return;
-    const desen = u.desenli ? foto + 1 : 0;
+    const f = fotolar(u), simdiki = f[foto] || "";
+    const desen = u.desenli && !videoMu(simdiki) ? f.slice(0, foto + 1).filter((s) => !videoMu(s)).length : 0;
     $("d-wa").href = waLink(M.wa(u, secilenEbat, desen));
-    $("d-desen").textContent = desen ? `${M.desen(desen)} / ${fotolar(u).length}` : "";
+    $("d-desen").textContent = videoMu(simdiki) ? "▶ " + M.video : desen ? `${M.desen(desen)} / ${resimler(u).length}` : "";
   }
   function fotoGit(i, kaydir = true) {
     const serit = $("d-serit"), n = serit.children.length;
@@ -302,6 +310,10 @@
     pencere.querySelector('[data-git="-1"]').disabled = foto === 0;
     pencere.querySelector('[data-git="1"]').disabled = foto === n - 1;
     $("d-kucuk").querySelectorAll("button").forEach((b, j) => b.classList.toggle("aktif", j === foto));
+    // Ekrandaki video sessiz oynar, diğerleri durur; videoda büyüt düğmesi gizlenir
+    [...serit.children].forEach((sl, j) => { const vd = sl.querySelector("video"); if (vd) j === foto ? vd.play().catch(() => {}) : vd.pause(); });
+    const buyut = pencere.querySelector(".galeri-buyut");
+    if (acikUrun && fotolar(acikUrun).length) buyut.hidden = videoMu(fotolar(acikUrun)[foto] || "");
     // Seçili küçük resmi şeridin ortasına getir (sayfayı kaydırmadan)
     const kucuk = $("d-kucuk"), aktifKucuk = kucuk.children[foto];
     if (aktifKucuk) kucuk.scrollTo({ left: aktifKucuk.offsetLeft - kucuk.clientWidth / 2 + aktifKucuk.clientWidth / 2, behavior: "smooth" });
@@ -327,6 +339,7 @@
       if (ac) detayAc(ac.dataset.urun);
     });
     pencere.addEventListener("close", () => {
+      $("d-serit").querySelectorAll("video").forEach((vd) => vd.pause());
       document.body.classList.remove("pencere-acik");
       acikUrun = null;
       if (location.hash.startsWith("#urun=")) history.replaceState(null, "", location.pathname + location.search);
@@ -349,7 +362,7 @@
     const tam = $("d-tam");
     const tamAc = () => {
       const f = fotolar(acikUrun)[foto];
-      if (!f) return;
+      if (!f || videoMu(f)) return;
       tam.querySelector("img").src = f;
       tam.hidden = false;
     };
