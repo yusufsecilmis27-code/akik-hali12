@@ -254,7 +254,7 @@
     document.getElementById("f-temizle").addEventListener("click", () => { Object.values(f).forEach((el) => (el.value = "")); katalogCiz(); });
   }
 
-  // Ürün detay penceresi ve galeri. Her ürünün kendi linki var: site.com/#urun=AK-1024
+  // Ürün detay penceresi ve galeri. Her ürünün kendi linki var: site.com/#urun=AKS-001
   const pencere = document.getElementById("urun-pencere");
   let acikUrun = null, secilenEbat = "", foto = 0;
   const $ = (id) => document.getElementById(id);
@@ -410,7 +410,7 @@
     katalogCiz();
   }
 
-  // Link ile gelen ürünü aç (#urun=AK-1024)
+  // Link ile gelen ürünü aç (#urun=AKS-001)
   const hashUrun = () => decodeURIComponent((location.hash.match(/^#urun=(.+)$/) || [])[1] || "");
   if (hashUrun()) detayAc(hashUrun(), false);
   window.addEventListener("hashchange", () => hashUrun() && detayAc(hashUrun(), false));

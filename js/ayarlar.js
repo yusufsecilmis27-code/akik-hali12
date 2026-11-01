@@ -26,7 +26,7 @@ const AYARLAR = {
     { gorsel: "img/hero/5.webp", urun: "AKS-001" }
   ],
   // heroGorseller boşsa bu ürünlerin fotoğrafları kullanılır
-  heroUrunler: ["AK-106", "CM-205", "AK-111", "CM-207", "AK-103"],
+  heroUrunler: ["AKS-001", "AKS-002", "SPT-001", "SPT-002", "AKS-004"],
   heroSure: 5, // her fotoğraf kaç saniye görünsün
 
   // Ana sayfadaki rakamlar

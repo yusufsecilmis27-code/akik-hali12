@@ -24,14 +24,8 @@
   mensei   : Menşei, örn. "Türkiye"
   aciklama : { tr: "...", en: "..." }
 
-  NOT: Aşağıdaki ürünlerin ad, kod, renk ve ebatları fotoğraflara bakılarak geçici olarak yazıldı.
-  Gerçek kod, ebat ve malzeme bilgileriyle düzeltin.
+  NOT: Ürün kodları (AKS-..., SPT-...) geçicidir; gerçek kodlarla değiştirin.
 */
-const AKIK_EBAT = ["80x150", "120x180", "160x230", "200x290"];
-const AKIK_ACIKLAMA = { tr: "Akik Yeni Koleksiyon. Yoğun dokulu, eskitme efektli makine halısı.", en: "Akik New Collection. Dense machine-made rug with a distressed finish." };
-const CAMI_EBAT = ["Rulo / metre ile"];
-const CAMI_ACIKLAMA = { tr: "Saflı cami halısı. Cami ölçüsüne göre metre ile kesim ve döşeme.", en: "Mosque carpet with prayer rows. Cut to size per metre for your mosque." };
-
 const URUNLER = [
   // SERİ ÜRETİM
   // Saraylı Mercan bir kalitedir; gorseller bu kalitenin desenleridir. desenli: true olunca galeride
@@ -86,49 +80,5 @@ const URUNLER = [
     ebatlar: ["200x270"], etiket: "spot", desenli: true,
     gorseller: ["img/spot/kampanya-07.webp", "img/spot/kampanya-08.webp", "img/spot/kampanya-01.webp"],
     agirlik: "1.700 g/m²",
-    aciklama: { tr: "Kampanyalı spot halı. Kabartma dokulu, modern desenli polyester halı.", en: "Stock rug on promotion. Polyester rug with embossed texture and modern designs." } },
-
-  // AKİK YENİ KOLEKSİYON
-  { kod: "AK-101", ad: "Akik Madalyon Füme", adEn: "Akik Medallion Smoke", tur: "Makine Halısı", malzeme: "", renk: "Gri",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-101.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-102", ad: "Akik Eskitme", adEn: "Akik Vintage", tur: "Makine Halısı", malzeme: "", renk: "Gri",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-102.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-103", ad: "Akik Madalyon Vizon", adEn: "Akik Medallion Mink", tur: "Makine Halısı", malzeme: "", renk: "Vizon",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-103.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-104", ad: "Akik Dalga", adEn: "Akik Wave", tur: "Makine Halısı", malzeme: "", renk: "Krem",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-104.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-105", ad: "Akik Modern Çizgi", adEn: "Akik Modern Line", tur: "Makine Halısı", malzeme: "", renk: "Gri",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-105.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-106", ad: "Akik Madalyon Lacivert", adEn: "Akik Medallion Navy", tur: "Makine Halısı", malzeme: "", renk: "Lacivert",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-106.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-107", ad: "Akik Klasik", adEn: "Akik Classic", tur: "Makine Halısı", malzeme: "", renk: "Bej",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-107.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-108", ad: "Akik Mermer", adEn: "Akik Marble", tur: "Makine Halısı", malzeme: "", renk: "Bej",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-108.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-109", ad: "Akik Geometrik", adEn: "Akik Geometric", tur: "Makine Halısı", malzeme: "", renk: "Krem",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-109.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-110", ad: "Akik Patchwork", adEn: "Akik Patchwork", tur: "Makine Halısı", malzeme: "", renk: "Gri",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-110.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-111", ad: "Akik Madalyon Krem", adEn: "Akik Medallion Cream", tur: "Makine Halısı", malzeme: "", renk: "Krem",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-111.jpg"], aciklama: AKIK_ACIKLAMA },
-  { kod: "AK-112", ad: "Akik Madalyon Kahve", adEn: "Akik Medallion Brown", tur: "Makine Halısı", malzeme: "", renk: "Kahverengi",
-    ebatlar: AKIK_EBAT, etiket: "spot", gorseller: ["img/urunler/AK-112.jpg"], aciklama: AKIK_ACIKLAMA },
-
-  // CAMİ HALISI
-  { kod: "CM-201", ad: "Cami Halısı Yeşil", adEn: "Mosque Carpet Green", tur: "Cami Halısı", malzeme: "", renk: "Yeşil",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-201.jpg"], aciklama: CAMI_ACIKLAMA },
-  { kod: "CM-202", ad: "Cami Halısı Bordo Mihrap", adEn: "Mosque Carpet Burgundy Arch", tur: "Cami Halısı", malzeme: "", renk: "Kırmızı",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-202.jpg"], aciklama: CAMI_ACIKLAMA },
-  { kod: "CM-203", ad: "Cami Halısı Bordo Lale", adEn: "Mosque Carpet Burgundy Tulip", tur: "Cami Halısı", malzeme: "", renk: "Kırmızı",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-203.jpg"], aciklama: CAMI_ACIKLAMA },
-  { kod: "CM-204", ad: "Cami Halısı Bordo Klasik", adEn: "Mosque Carpet Burgundy Classic", tur: "Cami Halısı", malzeme: "", renk: "Kırmızı",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-204.jpg"], aciklama: CAMI_ACIKLAMA },
-  { kod: "CM-205", ad: "Cami Halısı Kandil", adEn: "Mosque Carpet Lantern", tur: "Cami Halısı", malzeme: "", renk: "Kırmızı",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-205.jpg"], aciklama: CAMI_ACIKLAMA },
-  { kod: "CM-206", ad: "Cami Halısı Sade Bordo", adEn: "Mosque Carpet Plain Burgundy", tur: "Cami Halısı", malzeme: "", renk: "Kırmızı",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-206.jpg"], aciklama: CAMI_ACIKLAMA },
-  { kod: "CM-207", ad: "Cami Halısı Hayat Ağacı", adEn: "Mosque Carpet Tree of Life", tur: "Cami Halısı", malzeme: "", renk: "Kırmızı",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-207.jpg"], aciklama: CAMI_ACIKLAMA },
-  { kod: "CM-208", ad: "Cami Halısı Çizgili Saf", adEn: "Mosque Carpet Striped Rows", tur: "Cami Halısı", malzeme: "", renk: "Lacivert",
-    ebatlar: CAMI_EBAT, etiket: "seri", gorseller: ["img/urunler/CM-208.jpg"], aciklama: CAMI_ACIKLAMA }
+    aciklama: { tr: "Kampanyalı spot halı. Kabartma dokulu, modern desenli polyester halı.", en: "Stock rug on promotion. Polyester rug with embossed texture and modern designs." } }
 ];
