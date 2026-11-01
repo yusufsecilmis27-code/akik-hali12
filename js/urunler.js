@@ -62,10 +62,9 @@ const URUNLER = [
 
   { kod: "SPT-003", ad: "Kampanyalık Polyester", adEn: "Campaign Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
     ebatlar: ["200x270"], etiket: "spot", desenli: true,
-    gorseller: ["img/spot/kampanya-01.webp", "img/spot/kampanya-02.webp", "img/spot/kampanya-03.webp", "img/spot/kampanya-04.webp",
-      "img/spot/kampanya-05.webp", "img/spot/kampanya-06.webp", "img/spot/kampanya-07.webp", "img/spot/kampanya-08.webp"],
+    gorseller: ["img/spot/kampanya-07.webp", "img/spot/kampanya-08.webp", "img/spot/kampanya-01.webp"],
     agirlik: "1.700 g/m²",
-    aciklama: { tr: "Kampanyalı spot halı. Klasik ve modern desenlerde, uygun fiyatlı polyester halı.", en: "Stock rug on promotion. Affordable polyester rug in classic and modern designs." } },
+    aciklama: { tr: "Kampanyalı spot halı. Kabartma dokulu, modern desenli polyester halı.", en: "Stock rug on promotion. Polyester rug with embossed texture and modern designs." } },
 
   // AKİK YENİ KOLEKSİYON
   { kod: "AK-101", ad: "Akik Madalyon Füme", adEn: "Akik Medallion Smoke", tur: "Makine Halısı", malzeme: "", renk: "Gri",
