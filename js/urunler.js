@@ -74,6 +74,12 @@ const URUNLER = [
     agirlik: "950 / 1.100 / 1.200 / 1.500 g/m²", taban: "Kaymaz taban",
     aciklama: { tr: "Seri üretim, kaymaz tabanlı rulo halı. İstenilen ölçü ve ağırlıkta üretim sağlanır.", en: "Series production non-slip roll carpet. Produced in any size and weight you need." } },
 
+  { kod: "AKS-007", ad: "Polyester Seri Üretim", adEn: "Polyester Series Production", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
+    ebatlar: ["İstenilen ebatta üretim"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/polyester-01.jpg", "img/seri/polyester-02.jpg", "img/seri/polyester-03.jpg", "img/seri/polyester-04.jpg", "img/seri/polyester-05.jpg", "img/seri/polyester-06.jpg", "img/seri/polyester-07.jpg", "img/seri/polyester-08.jpg", "img/seri/polyester-09.jpg", "img/seri/polyester-10.jpg", "img/seri/polyester-11.jpg", "img/seri/polyester-12.jpg"],
+    agirlik: "İstenilen ağırlıkta üretim",
+    aciklama: { tr: "Seri üretim polyester halı. Modern ve klasik desenlerde, istenilen ebat ve ağırlıkta üretim sağlanır.", en: "Series production polyester rug in modern and classic designs. Produced in any size and weight you need." } },
+
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
