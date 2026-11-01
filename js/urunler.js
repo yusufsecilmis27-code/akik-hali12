@@ -90,7 +90,7 @@ const URUNLER = [
 
   { kod: "SPT-005", ad: "Vintage Dizayn Cross Dokuma", adEn: "Vintage Design Cross Weave", tur: "Makine Halısı", malzeme: "", renk: "",
     ebatlar: ["160x230", "200x290"], etiket: "spot", desenli: true,
-    gorseller: ["img/spot/vintage-01.jpg", "img/spot/vintage-02.jpg", "img/spot/vintage-03.jpg", "img/spot/vintage-04.jpg",
+    gorseller: ["img/spot/vintage-03.jpg", "img/spot/vintage-01.jpg", "img/spot/vintage-02.jpg", "img/spot/vintage-04.jpg",
       "img/spot/vintage-05.jpg", "img/spot/vintage-06.jpg", "img/spot/vintage-07.jpg"],
     agirlik: "2.000 g/m²",
     aciklama: { tr: "Cross dokuma, vintage ve modern desenli, eskitme görünümlü halı.", en: "Cross-woven rug with a distressed look in vintage and modern designs." } }
