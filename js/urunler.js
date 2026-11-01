@@ -39,7 +39,7 @@ const URUNLER = [
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "AKS-001", ad: "Akik Saraylı Mercan", adEn: "Akik Palace Coral", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
     ebatlar: ["100x200", "100x300", "160x230", "200x290", "240x340", "300x400"], etiket: "seri", desenli: true,
-    gorseller: ["img/seri/gorsel-01.webp", "img/seri/gorsel-02.webp", "img/seri/gorsel-03.webp", "img/seri/gorsel-04.webp",
+    gorseller: ["img/seri/gorsel-04.webp", "img/seri/gorsel-01.webp", "img/seri/gorsel-02.webp", "img/seri/gorsel-03.webp",
       "img/seri/gorsel-05.webp", "img/seri/gorsel-06.webp", "img/seri/gorsel-07.webp", "img/seri/gorsel-08.webp",
       "img/seri/gorsel-09.webp", "img/seri/gorsel-10.webp", "img/seri/gorsel-11.webp", "img/seri/gorsel-12.webp"],
     hav: "20 lanset", agirlik: "2.300 g/m²", siklik: "420.000 nokta/m²", iplik: "Polip, Floş Polyester, Çöken",
