@@ -80,6 +80,12 @@ const URUNLER = [
     agirlik: "İstenilen ağırlıkta üretim",
     aciklama: { tr: "Seri üretim polyester halı. Modern ve klasik desenlerde, istenilen ebat ve ağırlıkta üretim sağlanır.", en: "Series production polyester rug in modern and classic designs. Produced in any size and weight you need." } },
 
+  { kod: "AKS-008", ad: "Polyester Desen Kataloğu", adEn: "Polyester Design Catalogue", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
+    ebatlar: ["İstenilen ebatta üretim"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/desen-01.jpg", "img/seri/desen-02.jpg", "img/seri/desen-03.jpg", "img/seri/desen-04.jpg", "img/seri/desen-05.jpg", "img/seri/desen-06.jpg", "img/seri/desen-07.jpg", "img/seri/desen-08.jpg", "img/seri/desen-09.jpg", "img/seri/desen-10.jpg", "img/seri/desen-11.jpg", "img/seri/desen-12.jpg", "img/seri/desen-13.jpg", "img/seri/desen-14.jpg", "img/seri/desen-15.jpg", "img/seri/desen-16.jpg", "img/seri/desen-17.jpg", "img/seri/desen-18.jpg", "img/seri/desen-19.jpg", "img/seri/desen-20.jpg"],
+    agirlik: "2.000 g/m²",
+    aciklama: { tr: "Seri üretim polyester halı. Bu desenlerden istenilen ebatta üretim sağlanır.", en: "Series production polyester rug. Any of these designs can be produced in the size you need." } },
+
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
