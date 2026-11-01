@@ -8,6 +8,7 @@
     "Makine Halısı": "Machine-made rug", "Shaggy": "Shaggy", "Kilim": "Kilim", "Yolluk": "Runner",
     "Çocuk Halısı": "Kids' rug", "Banyo Paspası": "Bath mat", "Cami Halısı": "Mosque carpet",
     "Rulo / metre ile": "Roll / per metre", "Vizon": "Mink",
+    "İstenilen ebatta üretim": "Any size on request", "İstenilen ağırlıkta üretim": "Any weight on request", "Kaymaz taban": "Non-slip backing",
     "Akrilik": "Acrylic", "Polyester": "Polyester", "Pamuk": "Cotton", "Yün": "Wool", "Bambu": "Bamboo",
     "Kırmızı": "Red", "Lacivert": "Navy", "Gri": "Grey", "Krem": "Cream", "Bej": "Beige", "Turuncu": "Orange",
     "Yeşil": "Green", "Kahverengi": "Brown", "Mavi": "Blue", "Siyah": "Black", "Beyaz": "White", "Pembe": "Pink",

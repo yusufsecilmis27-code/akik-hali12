@@ -60,6 +60,13 @@ const URUNLER = [
     agirlik: "1.300 g/m²",
     aciklama: { tr: "Kampanyalı seri üretim. Kabartma dokulu, modern çerçeve desenli polyester halı.", en: "Series production on promotion. Polyester rug with embossed texture and modern border designs." } },
 
+  { kod: "AKS-004", ad: "Dijital Baskı Kaymaz Taban", adEn: "Digital Print Non-Slip", tur: "Makine Halısı", malzeme: "", renk: "",
+    ebatlar: ["İstenilen ebatta üretim"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/dijital-01.jpg", "img/seri/dijital-02.jpg", "img/seri/dijital-03.jpg",
+      "img/seri/dijital-04.jpg", "img/seri/dijital-05.jpg"],
+    agirlik: "İstenilen ağırlıkta üretim", taban: "Kaymaz taban",
+    aciklama: { tr: "Dijital baskı, kaymaz tabanlı halı. İstenilen tüm ebatlarda, istenilen ağırlık ve kalitede üretim sağlanır.", en: "Digital print rug with non-slip backing. Produced in any size, weight and quality you need." } },
+
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
