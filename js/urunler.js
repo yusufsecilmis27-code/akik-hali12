@@ -45,6 +45,14 @@ const URUNLER = [
     hav: "20 lanset", agirlik: "2.300 g/m²", siklik: "420.000 nokta/m²", iplik: "Polip, Floş Polyester, Çöken",
     aciklama: { tr: "Akik seri üretim koleksiyonu. Sık dokulu, saray motifli makine halısı.", en: "Akik series production. Densely woven machine-made rug with palace motifs." } },
 
+  { kod: "AKS-002", ad: "1000 Tarak", adEn: "1000 Reed", tur: "Makine Halısı", malzeme: "", renk: "",
+    ebatlar: ["80x80", "80x150", "80x300", "100x200", "100x300", "160x230", "200x290", "300x400"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/tarak-04.jpg", "img/seri/tarak-01.jpg", "img/seri/tarak-02.jpg", "img/seri/tarak-03.jpg",
+      "img/seri/tarak-05.jpg", "img/seri/tarak-06.jpg", "img/seri/tarak-07.jpg", "img/seri/tarak-08.jpg",
+      "img/seri/tarak-09.jpg", "img/seri/tarak-10.jpg", "img/seri/tarak-11.jpg", "img/seri/tarak-12.jpg"],
+    agirlik: "2.500 g/m²",
+    aciklama: { tr: "Seri üretim. 1000 tarak sık dokulu, klasik İran desenli makine halısı.", en: "Series production. Densely woven 1000-reed machine-made rug with classic Persian designs." } },
+
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
