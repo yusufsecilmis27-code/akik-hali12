@@ -53,6 +53,13 @@ const URUNLER = [
     agirlik: "2.500 g/m²",
     aciklama: { tr: "Seri üretim. 1000 tarak sık dokulu, klasik İran desenli makine halısı.", en: "Series production. Densely woven 1000-reed machine-made rug with classic Persian designs." } },
 
+  { kod: "AKS-003", ad: "Kampanyalık Polyester Seri", adEn: "Campaign Polyester Series", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
+    ebatlar: ["200x280", "220x300"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/kampanya-03.jpg", "img/seri/kampanya-01.jpg", "img/seri/kampanya-02.jpg",
+      "img/seri/kampanya-04.jpg", "img/seri/kampanya-05.jpg"],
+    agirlik: "1.300 g/m²",
+    aciklama: { tr: "Kampanyalı seri üretim. Kabartma dokulu, modern çerçeve desenli polyester halı.", en: "Series production on promotion. Polyester rug with embossed texture and modern border designs." } },
+
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
