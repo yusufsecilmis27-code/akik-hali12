@@ -207,7 +207,7 @@
   const VITRIN_SAYI = 4;
   const vitrinCiz = () => vitrin && ciz(vitrin, U.filter((u) => u.etiket === sekme).slice(0, VITRIN_SAYI), METIN[dil].bosVitrin);
   const tumu = document.getElementById("vitrin-tumu");
-  const tumuGuncelle = () => tumu && (tumu.href = "urunler.html?grup=" + sekme);
+  const tumuGuncelle = () => tumu && (tumu.href = "urunler.html");
   tumuGuncelle();
   document.querySelectorAll(".sekme").forEach((b) =>
     b.addEventListener("click", () => {
@@ -421,10 +421,11 @@
   dilUygula(dil);
 
   // "Tümünü gör" ile gelindiyse kataloğu o gruba süz (urunler.html?grup=seri)
-  const grupParam = new URLSearchParams(location.search).get("grup");
-  if (katalog && grupParam && METIN[dil].grup[grupParam]) {
-    f.grup.value = grupParam;
-    katalogCiz();
+  // Ürünler sayfası her açılışta filtreler temiz başlar (tarayıcının eski seçimleri hatırlamasını da engelle)
+  if (katalog) {
+    const temizle = () => { Object.values(f).forEach((el) => { el.value = ""; el.setAttribute("autocomplete", "off"); }); katalogCiz(); };
+    temizle();
+    window.addEventListener("pageshow", (e) => e.persisted && temizle());
   }
 
   // Link ile gelen ürünü aç (#urun=AKS-001)
