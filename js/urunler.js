@@ -86,11 +86,11 @@ const URUNLER = [
     agirlik: "2.000 g/m²",
     aciklama: { tr: "Seri üretim polyester halı. Bu desenlerden istenilen ebatta üretim sağlanır.", en: "Series production polyester rug. Any of these designs can be produced in the size you need." } },
 
-  { kod: "AKS-009", ad: "İskandinav Tarzı Sisal", adEn: "Scandinavian Style Sisal", tur: "Makine Halısı", malzeme: "", renk: "",
+  { kod: "AKS-009", ad: "İskandinav Sisal", adEn: "Scandinavian Sisal", tur: "Makine Halısı", malzeme: "", renk: "",
     ebatlar: ["90x150", "80x300", "100x200", "100x300", "120x180", "160x230", "200x290"], etiket: "seri", desenli: true,
     gorseller: ["img/seri/iskandinav-01.jpg", "img/seri/iskandinav-02.jpg", "img/seri/iskandinav-03.jpg", "img/seri/iskandinav-04.jpg", "img/seri/iskandinav-05.jpg", "img/seri/iskandinav-06.jpg", "img/seri/iskandinav-07.jpg", "img/seri/iskandinav-08.jpg", "img/seri/iskandinav-09.jpg", "img/seri/iskandinav-10.jpg", "img/seri/iskandinav-11.jpg", "img/seri/iskandinav-12.jpg", "img/seri/iskandinav-13.jpg", "img/seri/iskandinav-14.jpg", "img/seri/iskandinav-15.jpg", "img/seri/iskandinav-16.jpg", "img/seri/iskandinav-17.jpg", "img/seri/iskandinav-18.jpg", "img/seri/iskandinav-19.jpg", "img/seri/iskandinav-20.jpg"],
     agirlik: "1.300 g/m²",
-    aciklama: { tr: "Seri üretim, İskandinav tarzı kabartma desenli sisal halı. İstenilen ebatta üretim sağlanır.", en: "Series production Scandinavian-style sisal rug with embossed patterns. Produced in any size you need." } },
+    aciklama: { tr: "Seri üretim, İskandinav tarzı kabartmalı sisal halı. İstenilen ebatta üretim sağlanır.", en: "Series production Scandinavian-style embossed sisal rug. Produced in any size you need." } },
 
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
