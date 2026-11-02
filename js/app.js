@@ -109,10 +109,22 @@
   const resimler = (u) => fotolar(u).filter((s) => !videoMu(s));
   const ad = (u) => (dil === "en" ? u.adEn || u.ad : u.ad);
   // Listenin ilki video ise kartta kapak olarak sessiz, döngülü video oynar
+  // Hız için küçültülmüş kopyalar: img/k = kart ve küçük resimler (480 px), img/o = galeri (1200 px).
+  // Kopya yoksa orijinal fotoğraf yüklenir (onerror).
+  const surum = (src, kat) => /^img\//.test(src) ? "img/" + kat + "/" + src.slice(4).replace(/\.\w+$/, ".webp") : src;
+  const resim = (src, kat, alt, ek = "") =>
+    `<img src="${surum(src, kat)}" alt="${alt}" loading="lazy" decoding="async"${ek} onerror="this.onerror=null;this.src='${src}'">`;
+  // Listenin ilki video ise kartta kapak olarak sessiz, döngülü video oynar (görününce yüklenir)
   const gorsel = (u) => {
-    const ilk = fotolar(u)[0];
-    if (ilk && videoMu(ilk)) return `<video class="kapak-video" src="${ilk}" muted autoplay loop playsinline preload="metadata" aria-label="${u.ad}"></video>`;
-    const f = resimler(u)[0]; return f ? `<img src="${f}" alt="${u.ad} ${u.kod}" loading="lazy">` : yerTutucu(u); };
+    const ilk = fotolar(u)[0], kapak = resimler(u)[0];
+    if (ilk && videoMu(ilk)) return `<video class="kapak-video" data-src="${ilk}" muted loop playsinline preload="none"${kapak ? ` poster="${surum(kapak, "k")}"` : ""} aria-label="${u.ad}"></video>`;
+    return kapak ? resim(kapak, "k", `${u.ad} ${u.kod}`) : yerTutucu(u); };
+  // Kapak videoları sadece ekrana girince indirilip oynatılır
+  const videoGozcu = "IntersectionObserver" in window ? new IntersectionObserver((girdiler) => girdiler.forEach((g) => {
+    const v = g.target;
+    if (g.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
+  }), { rootMargin: "200px" }) : null;
+  const videolariIzle = (kap) => kap.querySelectorAll("video.kapak-video").forEach((v) => videoGozcu ? videoGozcu.observe(v) : (v.src = v.dataset.src));
 
   function kart(u) {
     const M = METIN[dil];
@@ -133,6 +145,7 @@
   }
   function ciz(kap, liste, bosMetin = METIN[dil].bos) {
     kap.innerHTML = liste.length ? liste.map(kart).join("") : `<p class="bos">${bosMetin}</p>`;
+    videolariIzle(kap);
   }
 
   // Hero: dönen fotoğraflar (ayarlar.js > heroUrunler)
@@ -177,9 +190,9 @@
     hero.style.setProperty("--sure", heroSure / 1000 + "s");
     // Telefonda dikey (mobil) fotoğraf, bilgisayarda yatay fotoğraf gösterilir
     document.getElementById("hero-slaytlar").innerHTML = heroListe
-      .map((h, i) => `<div class="hero-slayt"><picture><source media="(max-width: 820px)" srcset="${h.mobil}"><img src="${h.gorsel}" alt="${h.urun ? h.urun.ad : A.firmaAdi || ""}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'}></picture></div>`).join("");
+      .map((h, i) => `<div class="hero-slayt"><picture><source media="(max-width: 820px)" srcset="${surum(h.mobil, "o")}"><img src="${surum(h.gorsel, "o")}" decoding="async" alt="${h.urun ? h.urun.ad : A.firmaAdi || ""}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'}></picture></div>`).join("");
     document.getElementById("hero-kucuk").innerHTML = heroListe
-      .map((h, i) => `<button data-hero="${i}" role="tab" aria-label="${i + 1}"><img src="${h.mobil}" alt=""></button>`).join("");
+      .map((h, i) => `<button data-hero="${i}" role="tab" aria-label="${i + 1}">${resim(h.mobil, "k", "")}</button>`).join("");
     hero.addEventListener("click", (e) => {
       const b = e.target.closest("[data-hero]");
       if (b) { heroGoster(Number(b.dataset.hero)); heroBaslat(); }
@@ -273,11 +286,11 @@
     $("d-serit").innerHTML = f.length
       ? f.map((src, i) => videoMu(src)
           ? `<div class="slayt slayt-video"><video src="${src}" muted playsinline loop controls preload="metadata"></video></div>`
-          : `<div class="slayt"><img src="${src}" alt="${ad(u)} ${i + 1}"${i ? ' loading="lazy"' : ""}></div>`).join("")
+          : `<div class="slayt">${resim(src, "o", ad(u) + " " + (i + 1))}</div>`).join("")
       : `<div class="slayt">${yerTutucu(u)}</div>`;
     $("d-kucuk").innerHTML = f.map((src, i) => videoMu(src)
       ? `<button data-foto="${i}" aria-label="Video" class="kucuk-video"><video src="${src}#t=0.5" muted preload="metadata"></video><span>▶</span></button>`
-      : `<button data-foto="${i}" aria-label="${i + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join("");
+      : `<button data-foto="${i}" aria-label="${i + 1}">${resim(src, "k", "")}</button>`).join("");
     pencere.querySelector(".galeri-buyut").hidden = !f.length;
     // Benzer ürünler: aynı türden 4 ürün
     const benzer = U.filter((x) => x.kod !== u.kod && x.tur === u.tur).slice(0, 4);
@@ -285,6 +298,7 @@
       ? `<h3>${M.benzer}</h3><div class="benzer-liste">${benzer.map((x) =>
           `<button data-urun="${x.kod}" title="${ad(x)}">${gorsel(x)}<span>${x.kod}</span></button>`).join("")}</div>`
       : "";
+    videolariIzle($("d-benzer"));
     $("d-kod").textContent = u.kod;
     $("d-ad").textContent = ad(u);
     $("d-tur").textContent = cevir(u.tur);

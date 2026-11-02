@@ -36,3 +36,6 @@ YAYINA ALMA
 Alan adı (örn. firmaadi.com) ve hosting satın alın, bu klasördeki tüm
 dosyaları hostingin "public_html" klasörüne yükleyin. info@ ve export@
 e-postaları hosting paketinden açılır. Google İşletme Profili de açın.
+
+6) Hız: Yeni fotoğraf ekledikten sonra küçük sürümleri (img/k ve img/o) üretmek gerekir.
+   Üretilmezse site orijinal fotoğrafı kullanır, sadece biraz daha yavaş açılır.
