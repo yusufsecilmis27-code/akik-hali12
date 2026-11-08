@@ -41,6 +41,10 @@ html[data-lang="tr"] [data-l="en"] { display: none !important; }
 .ust { position: sticky; top: 0; z-index: 50; background: rgba(250, 250, 248, .85); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--cizgi); }
 .ust-ic { display: flex; align-items: center; gap: 28px; height: 68px; }
 .logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; margin: 0; }
+.logo-cizim { display: flex; align-items: center; color: var(--metin); }
+.logo-svg { height: 48px; width: auto; display: block; overflow: visible; }
+.alt .logo-cizim { color: #fff; margin-bottom: 6px; }
+.alt .logo-svg { height: 56px; }
 .logo-resim { display: flex; align-items: center; }
 .logo-resim img { height: 34px; width: auto; }
 .logo-alt-resim { display: inline-block; margin-bottom: 14px; }
@@ -401,6 +405,8 @@ body.pencere-acik { overflow: hidden; }
   body.ust-seffaf .menu.acik a { color: var(--metin); }
   .logo-resim img { height: 26px; }
   .ust .logo:not(.logo-resim) { font-size: .98rem; white-space: nowrap; }
+  .logo-svg { height: 34px; }
+  .alt .logo-svg { height: 48px; }
   .logo-alt-resim img { height: 76px; }
   .ikili, .iletisim-izgara, .iki-yol { grid-template-columns: 1fr; gap: 36px; }
   .hero-ic { padding-top: 110px; padding-bottom: 20px; }

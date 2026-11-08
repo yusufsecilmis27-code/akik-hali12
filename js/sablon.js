@@ -12,12 +12,21 @@
   const sayfa = decodeURIComponent(location.pathname.split("/").pop()) || "index.html";
   const A = typeof AYARLAR !== "undefined" ? AYARLAR : {};
   // Logo varsa resim, yoksa firma adı yazı olarak
+  // Emin Seçilmiş Carpet logosu (ES monogramı + yazı). Ana renk currentColor: header'da koyu, fotoğraf üstünde ve footer'da beyaz.
+  const G = "#b8925a", SERIF = "'Cormorant Garamond', Georgia, serif";
+  const logoSvg = `<svg class="logo-svg" viewBox="0 0 360 90" role="img" aria-label="${A.firmaAdi || ""}">
+    <polygon points="45,6 84,45 45,84 6,45" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <polygon points="45,14 76,45 45,76 14,45" fill="none" stroke="${G}" stroke-width="1"/>
+    <text x="45" y="55" text-anchor="middle" font-family="${SERIF}" font-size="30" font-weight="700" fill="currentColor">ES</text>
+    <line x1="104" y1="18" x2="104" y2="72" stroke="${G}" stroke-width="1"/>
+    <text x="122" y="47" font-family="${SERIF}" font-size="36" font-weight="600" fill="currentColor">Emin Seçilmiş</text>
+    <text x="123" y="70" font-family="Manrope, Arial, sans-serif" font-size="10.5" font-weight="700" letter-spacing="9.5" fill="${G}">CARPET</text></svg>`;
   const logo = (sinif, href) => A.logo
     ? `<${href ? `a href="${href}"` : "p"} class="${sinif} logo-resim"><img class="logo-koyu" src="${A.logo}" alt="${A.firmaAdi || ""}"><img class="logo-beyaz" src="${A.logoBeyaz || A.logo}" alt="${A.firmaAdi || ""}"></${href ? "a" : "p"}>`
-    : `<${href ? `a href="${href}"` : "p"} class="${sinif}" data-ayar="firmaAdi"></${href ? "a" : "p"}>`;
+    : `<${href ? `a href="${href}"` : "p"} class="${sinif} logo-cizim">${logoSvg}</${href ? "a" : "p"}>`;
   const altLogo = () => A.logoAlt
     ? `<a href="index.html" class="logo-alt-resim"><img src="${A.logoAlt}" alt="${A.unvan || A.firmaAdi || ""}"></a>`
-    : logo("logo logo-alt");
+    : logo("logo logo-alt", "index.html");
   const t = (en, tr) => `<span data-l="en">${en}</span><span data-l="tr">${tr}</span>`;
   const linkler = MENU.map(([href, en, tr]) =>
     `<a href="${href}"${href === sayfa ? ' aria-current="page"' : ""}>${t(en, tr)}</a>`).join("");
