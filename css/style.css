@@ -449,8 +449,13 @@ body.pencere-acik { overflow: hidden; }
 .kurucu-etiket { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #b8925a; margin: 0 0 6px; }
 .kurucu h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: 0; margin: 0 0 4px; }
 .kurucu-unvan { font-weight: 700; margin: 0 0 16px; }
-.kurucu-metin > p:not(.kurucu-etiket):not(.kurucu-unvan) { color: var(--soluk); font-size: 1.05rem; max-width: 620px; }
+.kurucu-metin [data-l] > p { color: var(--soluk); font-size: 1.04rem; max-width: 640px; margin: 0 0 14px; }
+.kurucu-metin [data-l] > p:first-child { color: var(--metin); font-size: 1.12rem; }
+.kurucu-ilke { list-style: none; padding: 0; margin: 26px 0 4px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.kurucu-ilke li { background: var(--kart); border-radius: 12px; padding: 16px; border-top: 3px solid #b8925a; font-size: .9rem; color: var(--soluk); }
+.kurucu-ilke b { display: block; color: var(--metin); font-size: .95rem; margin-bottom: 4px; }
 @media (max-width: 820px) {
   .kurucu { grid-template-columns: 1fr; gap: 28px; }
   .kurucu-logo { max-width: 260px; padding: 24px; }
+  .kurucu-ilke { grid-template-columns: 1fr; }
 }
