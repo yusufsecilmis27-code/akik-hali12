@@ -38,9 +38,7 @@ const AYARLAR = {
   ulkeler: ["Germany", "Iraq", "Saudi Arabia", "UAE", "USA", "United Kingdom", "Libya", "Azerbaijan", "Kazakhstan", "Russia", "France", "Netherlands"],
 
   // Telefon: görünen hali ve WhatsApp için başında 90 olan, boşluksuz hali
-  telefon: "0342 502 03 23",            // sabit telefon
-  telefon2: "0532 257 90 85",           // ikinci telefon
-  satisTelefon: "0544 536 10 33",       // satış & pazarlama (cep / WhatsApp)
+  satisTelefon: "0544 536 10 33",       // sitedeki tek telefon (arama ve WhatsApp)
   whatsapp: "905445361033",             // tüm WhatsApp düğmeleri bu numaraya gider
   yetkili: "Emin Seçilmiş",
   yetkiliGorev: { tr: "Satış & Pazarlama", en: "Sales & Marketing" },

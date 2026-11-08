@@ -54,8 +54,6 @@
   const waLink = (mesaj) => "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent(mesaj);
 
   // Dile bağlı olmayan alanlar
-  document.querySelectorAll("[data-tel]").forEach((el) => { el.textContent = A.telefon; el.href = "tel:" + (A.telefon || "").replace(/[^\d+]/g, ""); });
-  document.querySelectorAll("[data-tel2]").forEach((el) => { el.textContent = A.telefon2; el.href = "tel:" + (A.telefon2 || "").replace(/[^\d+]/g, ""); });
   document.querySelectorAll("[data-satis-tel]").forEach((el) => { el.textContent = A.satisTelefon; el.href = "tel:" + (A.satisTelefon || "").replace(/[^\d+]/g, ""); });
   document.querySelectorAll("[data-katalog]").forEach((el) => (el.href = A.katalogPdf || "#"));
   document.querySelectorAll("[data-harita]").forEach((el) => (el.src = A.haritaLinki || ""));

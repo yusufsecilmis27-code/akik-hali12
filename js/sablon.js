@@ -64,8 +64,6 @@
     <div class="alt-linkler">
       <h3>${t("Contact", "İletişim")}</h3>
       <span><span data-ayar="yetkili"></span>: <a data-satis-tel></a></span>
-      <a data-tel></a>
-      <a data-tel2></a>
       <span class="soluk" data-ayar="adres"></span>
     </div>
     <div class="alt-linkler">
