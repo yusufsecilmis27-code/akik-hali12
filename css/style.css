@@ -461,3 +461,32 @@ body.pencere-acik { overflow: hidden; }
 }
 .hikaye p { color: var(--soluk); font-size: 1.04rem; margin: 0 0 14px; }
 .hikaye p:last-child { color: var(--metin); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.35rem; font-weight: 600; line-height: 1.4; border-left: 3px solid #b8925a; padding-left: 16px; margin-top: 22px; }
+
+/* En alttaki yapımcı imzası */
+.imza { font-size: .75rem; color: #6a6964; padding-top: 14px; text-align: center; }
+.imza a { color: #a9a8a3; text-decoration: none; }
+.imza a:hover { color: #fff; }
+
+/* Arapça: aktif olmayan diller gizlenir; Arapçası olmayan İngilizce metin görünür kalır */
+html[data-lang="tr"] [data-l="ar"], html[data-lang="en"] [data-l="ar"],
+html[data-lang="ar"] [data-l="tr"], html[data-lang="ar"] [data-l="en"]:not([data-ar-yok]) { display: none !important; }
+html[lang="ar"] body { font-family: "Tajawal", "Manrope", system-ui, sans-serif; }
+html[lang="ar"] :is(h1, h2, h3, p, span, a, button, li, dt, dd, b, summary, label, input, textarea, select) { letter-spacing: 0 !important; }
+html[lang="ar"] .hero h1, html[lang="ar"] .bolum-baslik h2 { line-height: 1.35; }
+html[dir="rtl"] .hero-perde { background: linear-gradient(270deg, rgba(10,10,10,.82) 0%, rgba(10,10,10,.55) 45%, rgba(10,10,10,.15) 100%), linear-gradient(0deg, rgba(10,10,10,.85) 0%, transparent 40%); }
+html[dir="rtl"] .sayfa-bas::after { background: linear-gradient(270deg, rgba(10,10,10,.88) 0%, rgba(10,10,10,.6) 60%, rgba(10,10,10,.35) 100%); }
+html[dir="rtl"] :is(.kayan-ic, .galeri-serit, .galeri-kucuk, .hero-kucuk, .benzer-liste) { direction: ltr; }
+html[dir="rtl"] :is(.logo, .logo-svg, [data-satis-tel], .urun-kod, .detay-kod) { direction: ltr; unicode-bidi: isolate; }
+html[dir="rtl"] .hikaye p:last-child { border-left: 0; padding-left: 0; border-right: 3px solid #b8925a; padding-right: 16px; }
+html[dir="rtl"] .hero-secim { align-items: flex-start; }
+html[dir="rtl"] .hero-urun { text-align: left; }
+html[dir="rtl"] .wa-sabit { right: auto; left: 20px; }
+html[dir="rtl"] .pencere-kapat { right: auto; left: 12px; }
+html[dir="rtl"] .detay h2 { margin: 0 0 2px 40px; }
+html[dir="rtl"] summary { padding: 22px 0 22px 40px; }
+html[dir="rtl"] summary::after { right: auto; left: 6px; }
+html[dir="rtl"] details p { padding: 0 0 22px 40px; }
+html[dir="rtl"] .filtreler select { background-position: 18px 52%, 13px 52%; padding-right: 14px; padding-left: 34px; }
+html[dir="rtl"] .rozet { left: auto; right: 12px; }
+html[dir="rtl"] .foto-sayisi { right: auto; left: 12px; }
+html[dir="rtl"] .foto-dikey figcaption { left: auto; right: 10px; }

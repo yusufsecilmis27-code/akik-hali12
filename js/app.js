@@ -36,21 +36,48 @@
       form: (d) => `Merhaba, ben ${d.ad}${d.ulke ? " (" + d.ulke + ")" : ""}.\n${d.mesaj}`,
       benzer: "Benzer ürünler",
       oz: { malzeme: "Malzeme", iplik: "İplik türü", renk: "Renk", hav: "Hav", siklik: "Sıklık", agirlik: "m² ağırlığı", taban: "Taban", mensei: "Menşei" },
-      linkKopyalandi: "Link kopyalandı" }
+      linkKopyalandi: "Link kopyalandı" },
+    ar: { tumTur: "جميع الأنواع", tumMalzeme: "جميع الخامات", tumRenk: "جميع الألوان", tumEbat: "جميع المقاسات",
+      sonuc: (n) => n + " منتج", bos: "لا توجد منتجات مطابقة لهذه الفلاتر.", yeni: "جديد", son: "تصفية",
+      grup: { "": "جميع المنتجات", seri: "إنتاج متسلسل", spot: "سجاد من المخزون" },
+      bosVitrin: "ستتم إضافة منتجات لهذا القسم قريبًا.",
+      fiyatSor: "استفسر", kopyalandi: "✓",
+      wa: (u) => `مرحبًا، أود الحصول على معلومات عن ${u.adAr || u.adEn || u.ad}.`,
+      desen: (n) => "تصميم " + n, desenSayi: (n) => n + " تصميم", secili: "المحدد", video: "فيديو",
+      form: (d) => `مرحبًا، أنا ${d.ad}${d.ulke ? " من " + d.ulke : ""}.
+${d.mesaj}`,
+      benzer: "منتجات مشابهة",
+      oz: { malzeme: "الخامة", iplik: "نوع الخيط", renk: "اللون", hav: "الوبر", siklik: "الكثافة", agirlik: "الوزن لكل م²", taban: "القاعدة", mensei: "بلد المنشأ" },
+      linkKopyalandi: "تم نسخ الرابط" }
   };
+  const DILLER = ["tr", "en", "ar"];
 
   // Dil seçimi: adres (?lang=tr) > önceki seçim > tarayıcı dili. Türkçe olmayan herkes İngilizce görür.
   function ilkDil() {
     const p = new URLSearchParams(location.search).get("lang");
-    if (p === "tr" || p === "en") return p;
-    try { const k = localStorage.getItem("dil"); if (k) return k; } catch (e) {}
-    return (navigator.language || "").toLowerCase().startsWith("tr") ? "tr" : "en";
+    if (DILLER.includes(p)) return p;
+    try { const k = localStorage.getItem("dil"); if (DILLER.includes(k)) return k; } catch (e) {}
+    const t = (navigator.language || "").toLowerCase();
+    return t.startsWith("tr") ? "tr" : t.startsWith("ar") ? "ar" : "en";
   }
   let dil = ilkDil();
 
   const sec = (v) => (v && typeof v === "object" ? v[dil] || v.en || "" : v || "");
   const yol = (anahtar) => anahtar.split(".").reduce((o, k) => (o ? o[k] : undefined), A);
-  const cevir = (s) => (dil !== "en" ? s : CEVIRI[s] || s.replace("rulo", CEVIRI.rulo));
+  const AC = typeof AR_CEVIRI !== "undefined" ? AR_CEVIRI : {};
+  const cevir = (s) => dil === "en" ? CEVIRI[s] || s.replace("rulo", CEVIRI.rulo)
+    : dil === "ar" ? AC[s] || (AC.rulo ? s.replace("rulo", AC.rulo) : s) : s;
+
+  // Arapça: her İngilizce metnin yanına js/ar.js'deki karşılığını ekle. Karşılığı olmayan İngilizce metin Arapça sayfada da görünür.
+  const ARS = typeof AR !== "undefined" ? AR : {};
+  const norm = (h) => h.replace(/\s+/g, " ").replace(/&amp;/g, "&").trim();
+  document.querySelectorAll('[data-l="en"]').forEach((en) => {
+    const kardes = [en.previousElementSibling, en.nextElementSibling].some((k) => k && k.dataset && k.dataset.l === "ar");
+    if (kardes) return;
+    const ar = ARS[norm(en.innerHTML)];
+    if (ar) en.insertAdjacentHTML("afterend", `<${en.tagName.toLowerCase()} data-l="ar">${ar}</${en.tagName.toLowerCase()}>`);
+    else en.setAttribute("data-ar-yok", "");
+  });
   const waLink = (mesaj) => "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent(mesaj);
 
   // Dile bağlı olmayan alanlar
@@ -105,7 +132,7 @@
   const videoMu = (src) => /\.(mp4|webm|mov)$/i.test(src);
   const fotolar = (u) => (u.gorseller && u.gorseller.length ? u.gorseller : u.gorsel ? [u.gorsel] : []);
   const resimler = (u) => fotolar(u).filter((s) => !videoMu(s));
-  const ad = (u) => (dil === "en" ? u.adEn || u.ad : u.ad);
+  const ad = (u) => (dil === "en" ? u.adEn || u.ad : dil === "ar" ? u.adAr || u.adEn || u.ad : u.ad);
   // Listenin ilki video ise kartta kapak olarak sessiz, döngülü video oynar
   // Hız için küçültülmüş kopyalar: img/k = kart ve küçük resimler (480 px), img/o = galeri (1200 px).
   // Kopya yoksa orijinal fotoğraf yüklenir (onerror).
@@ -418,11 +445,14 @@
     try { localStorage.setItem("dil", dil); } catch (e) {}
     document.documentElement.lang = dil;
     document.documentElement.dataset.lang = dil;
+    document.documentElement.dir = dil === "ar" ? "rtl" : "ltr";
     document.querySelectorAll("[data-dil]").forEach((b) => b.classList.toggle("aktif", b.dataset.dil === dil));
     document.querySelectorAll("[data-ayar]").forEach((el) => { const v = sec(yol(el.dataset.ayar)); if (v) el.textContent = v; });
-    document.querySelectorAll("[data-ph-" + dil + "]").forEach((el) => (el.placeholder = el.getAttribute("data-ph-" + dil)));
-    document.querySelectorAll("[data-wa-" + dil + "]").forEach((el) => {
-      el.href = waLink(el.getAttribute("data-wa-" + dil)); el.target = "_blank"; el.rel = "noopener";
+    // Arapçası yazılmamış yer tutucu ve WhatsApp mesajlarında İngilizcesi kullanılır
+    const ozel = (el, on) => el.getAttribute(on + dil) || el.getAttribute(on + "en");
+    document.querySelectorAll("[data-ph-en]").forEach((el) => (el.placeholder = ozel(el, "data-ph-")));
+    document.querySelectorAll("[data-wa-en]").forEach((el) => {
+      el.href = waLink(ozel(el, "data-wa-")); el.target = "_blank"; el.rel = "noopener";
     });
     if (katalog) { filtreleriKur(); katalogCiz(); }
     vitrinCiz();

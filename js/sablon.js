@@ -38,7 +38,7 @@
     <nav class="menu">${linkler}</nav>
     <div class="ust-sag">
       <div class="dil-sec" role="group" aria-label="Language">
-        <button data-dil="en">EN</button><button data-dil="tr">TR</button>
+        <button data-dil="en">EN</button><button data-dil="tr">TR</button><button data-dil="ar">AR</button>
       </div>
       <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
     </div>
@@ -79,6 +79,7 @@
       <a href="#">${t("Back to top ↑", "Yukarı ↑")}</a>
     </span>
   </div>
+  <div class="kap imza" dir="ltr">Prod by. <a href="https://www.sandcodetr.com" target="_blank" rel="noopener">www.sandcodetr.com</a> · Yusuf Seçilmiş</div>
 </footer>`;
 
   const pencere = `
