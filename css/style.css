@@ -400,6 +400,7 @@ body.pencere-acik { overflow: hidden; }
   .ust-sag { margin-left: auto; }
   body.ust-seffaf .menu.acik a { color: var(--metin); }
   .logo-resim img { height: 26px; }
+  .ust .logo:not(.logo-resim) { font-size: .98rem; white-space: nowrap; }
   .logo-alt-resim img { height: 76px; }
   .ikili, .iletisim-izgara, .iki-yol { grid-template-columns: 1fr; gap: 36px; }
   .hero-ic { padding-top: 110px; padding-bottom: 20px; }

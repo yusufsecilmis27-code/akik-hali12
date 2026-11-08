@@ -5,13 +5,13 @@
   { tr: "...", en: "..." } olan yerlerde iki dili de yazın.
 */
 const AYARLAR = {
-  firmaAdi: "Akik Halı",
+  firmaAdi: "Emin Seçilmiş Carpet",
   // Logo: dosyayı img klasörüne koyup yolunu yazın. Boş bırakılırsa firma adı yazı olarak görünür.
   // logo / logoBeyaz: header'daki yatay logo (açık zeminde bordo, fotoğraf üstünde beyaz)
   // logoAlt: footer'daki tam logo (koyu zeminde, beyaz)
-  logo: "img/logo-yatay.png",
-  logoBeyaz: "img/logo-yatay-beyaz.png",
-  logoAlt: "img/logo-beyaz.png",
+  logo: "",   // eski Akik Halı logosu: "img/logo-yatay.png"
+  logoBeyaz: "",   // eski: "img/logo-yatay-beyaz.png"
+  logoAlt: "",   // eski: "img/logo-beyaz.png"
 
   // GİRİŞTE DÖNEN FOTOĞRAFLAR (ana sayfanın en üstü, tam ekran)
   // Bilgisayar fotoğrafı: YATAY, 1920 x 1080 piksel (16:9). Telefon fotoğrafı: DİKEY, 1080 x 1920 (9:16).
