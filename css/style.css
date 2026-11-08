@@ -459,3 +459,5 @@ body.pencere-acik { overflow: hidden; }
   .kurucu-logo { max-width: 260px; padding: 24px; }
   .kurucu-ilke { grid-template-columns: 1fr; }
 }
+.hikaye p { color: var(--soluk); font-size: 1.04rem; margin: 0 0 14px; }
+.hikaye p:last-child { color: var(--metin); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.35rem; font-weight: 600; line-height: 1.4; border-left: 3px solid #b8925a; padding-left: 16px; margin-top: 22px; }
