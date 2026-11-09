@@ -46,6 +46,8 @@ const AR = {
   "Export documents": "مستندات التصدير",
   "Custom production": "إنتاج حسب الطلب",
   "Fast shipping": "شحن سريع",
+  "Wholesale carpets from Gaziantep, Türkiye": "سجاد بالجملة من غازي عنتاب، تركيا",
+  "Frequently asked questions": "الأسئلة الشائعة",
 
   // Ürünler
   "All our products: series production and stock rugs. Tap a product for photos and details.": "جميع منتجاتنا: إنتاج متسلسل وسجاد من المخزون. اضغط على المنتج لرؤية الصور والتفاصيل.",

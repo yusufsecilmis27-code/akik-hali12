@@ -490,3 +490,7 @@ html[dir="rtl"] .filtreler select { background-position: 18px 52%, 13px 52%; pad
 html[dir="rtl"] .rozet { left: auto; right: 12px; }
 html[dir="rtl"] .foto-sayisi { right: auto; left: 12px; }
 html[dir="rtl"] .foto-dikey figcaption { left: auto; right: 10px; }
+
+/* Ana sayfa sık sorulanlar başlığı */
+.sss-baslik { margin: 40px 0 8px; font-size: 1.25rem; }
+.tanitim p { color: var(--soluk); font-size: 1.04rem; margin: 0 0 14px; }
