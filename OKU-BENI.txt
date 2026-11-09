@@ -27,7 +27,7 @@ Site iki dillidir (EN / TR). Türkçe tarayıcıyla girenler Türkçe, diğer he
 
 5) Renkler: css\style.css dosyasının en üstündeki değerler.
 
-6) Google Analytics: index.html başındaki açıklamaya bakın.
+6) Google Analytics: kurulu (G-2VMGYD68XT, mülk adı eminsecilmiscarpet.com). Raporlar: analytics.google.com
 
 7) KVKK metni genel bir şablondur; yayına almadan önce avukat veya
    mali müşavirinize kontrol ettirin.
