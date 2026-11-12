@@ -117,5 +117,6 @@ const AR_CEVIRI = {
   "Makine Halısı": "سجاد آلي", "Shaggy": "سجاد شاغي", "Kilim": "كليم", "Yolluk": "سجاد ممرات",
   "Polyester": "بوليستر", "Akrilik": "أكريليك", "Pamuk": "قطن", "Yün": "صوف",
   "İstenilen ebatta üretim": "إنتاج بأي مقاس مطلوب", "İstenilen ağırlıkta üretim": "إنتاج بأي وزن مطلوب",
-  "Kaymaz taban": "قاعدة مانعة للانزلاق", "rulo": "رول"
+  "Kaymaz taban": "قاعدة مانعة للانزلاق", "rulo": "رول",
+  "Yapboz Halı": "سجاد بازل", "Standart ebat": "مقاس قياسي", "Standart": "قياسي"
 };

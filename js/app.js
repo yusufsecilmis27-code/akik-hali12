@@ -12,6 +12,7 @@
     "Akrilik": "Acrylic", "Polyester": "Polyester", "Pamuk": "Cotton", "Yün": "Wool", "Bambu": "Bamboo",
     "Kırmızı": "Red", "Lacivert": "Navy", "Gri": "Grey", "Krem": "Cream", "Bej": "Beige", "Turuncu": "Orange",
     "Yeşil": "Green", "Kahverengi": "Brown", "Mavi": "Blue", "Siyah": "Black", "Beyaz": "White", "Pembe": "Pink",
+    "Yapboz Halı": "Puzzle rug", "Standart ebat": "Standard size", "Standart": "Standard",
     "rulo": "roll"
   };
   const METIN = {

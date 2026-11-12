@@ -92,6 +92,12 @@ const URUNLER = [
     agirlik: "1.300 g/m²",
     aciklama: { tr: "Seri üretim, İskandinav tarzı kabartmalı sisal halı. İstenilen ebatta üretim sağlanır.", en: "Series production Scandinavian-style embossed sisal rug. Produced in any size you need.", ar: "سجاد سيزال بارز على الطراز الإسكندنافي، إنتاج متسلسل. يُنتج بأي مقاس تحتاجه." } },
 
+  { kod: "AKS-010", ad: "Yapboz Halı", adEn: "Puzzle Rug", adAr: "سجاد بازل", tur: "Yapboz Halı", malzeme: "", renk: "",
+    ebatlar: ["Standart ebat"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/yapboz-01.jpg", "img/seri/yapboz-02.jpg", "img/seri/yapboz-03.jpg", "img/seri/yapboz-04.jpg", "img/seri/yapboz-05.jpg", "img/seri/yapboz-06.jpg", "img/seri/yapboz-07.jpg", "img/seri/yapboz-08.jpg", "img/seri/yapboz-09.jpg", "img/seri/yapboz-10.jpg", "img/seri/yapboz-11.jpg", "img/seri/yapboz-12.jpg", "img/seri/yapboz-13.jpg", "img/seri/yapboz-14.jpg", "img/seri/yapboz-15.jpg", "img/seri/yapboz-16.jpg", "img/seri/yapboz-17.jpg", "img/seri/yapboz-18.jpg", "img/seri/yapboz-19.jpg", "img/seri/yapboz-20.jpg", "img/seri/yapboz-21.jpg", "img/seri/yapboz-22.jpg", "img/seri/yapboz-23.jpg", "img/seri/yapboz-24.jpg", "img/seri/yapboz-25.jpg", "img/seri/yapboz-26.jpg", "img/seri/yapboz-27.jpg", "img/seri/yapboz-28.jpg", "img/seri/yapboz-29.jpg", "img/seri/yapboz-30.jpg", "img/seri/yapboz-31.jpg", "img/seri/yapboz-32.jpg", "img/seri/yapboz-33.jpg", "img/seri/yapboz-34.jpg", "img/seri/yapboz-35.jpg", "img/seri/yapboz-36.jpg", "img/seri/yapboz-37.jpg"],
+    agirlik: "Standart",
+    aciklama: { tr: "Seri üretim, birbirine geçen yapboz parçalardan oluşan peluş halı. Tek renk ve dama desenli, çok sayıda renk seçeneği.", en: "Series production plush rug made of interlocking puzzle pieces. Solid colours and checkerboard patterns in many colour options.", ar: "سجاد قطيفة من قطع بازل متداخلة، إنتاج متسلسل. ألوان سادة وتصاميم شطرنجية بخيارات ألوان كثيرة." } },
+
   // SPOT HALI
   // Kod geçici; gerçek kodla değiştirin.
   { kod: "SPT-001", ad: "Klasik Tasarım Polyester", adEn: "Classic Design Polyester", adAr: "بوليستر بتصميم كلاسيكي", tur: "Makine Halısı", malzeme: "Polyester", renk: "",
