@@ -28,6 +28,12 @@
 */
 const URUNLER = [
   // SERİ ÜRETİM
+  { kod: "AKS-011", ad: "İhracata Özel Seri", adEn: "Export Series", adAr: "سلسلة خاصة بالتصدير", tur: "Makine Halısı", malzeme: "", renk: "",
+    ebatlar: ["İstenilen ebatta üretim"], etiket: "seri", desenli: true,
+    gorseller: ["img/seri/ihracat-01.jpg", "img/seri/ihracat-02.jpg", "img/seri/ihracat-03.jpg", "img/seri/ihracat-04.jpg", "img/seri/ihracat-05.jpg", "img/seri/ihracat-06.jpg", "img/seri/ihracat-07.jpg", "img/seri/ihracat-08.jpg", "img/seri/ihracat-09.jpg", "img/seri/ihracat-10.jpg", "img/seri/ihracat-11.jpg", "img/seri/ihracat-12.jpg", "img/seri/ihracat-13.jpg", "img/seri/ihracat-14.jpg", "img/seri/ihracat-15.jpg", "img/seri/ihracat-16.jpg", "img/seri/ihracat-17.jpg", "img/seri/ihracat-18.jpg", "img/seri/ihracat-19.jpg", "img/seri/ihracat-20.jpg"],
+    agirlik: "1.200 g/m²",
+    aciklama: { tr: "Sadece ihracata özel seri üretim. Modern ve geometrik desenler. İstenilen ebat ve ölçüde konteyner bazında üretim sağlanır.", en: "Series production for export only. Modern and geometric designs. Produced in container loads in any size you need.", ar: "إنتاج متسلسل مخصص للتصدير فقط. تصاميم عصرية وهندسية. يتم الإنتاج بالحاويات وبأي مقاس تحتاجه." } },
+
   { kod: "AKS-010", ad: "Yapboz Halı", adEn: "Puzzle Rug", adAr: "سجاد بازل", tur: "Yapboz Halı", malzeme: "", renk: "",
     ebatlar: ["Standart ebat"], etiket: "seri", desenli: true,
     gorseller: ["img/seri/yapboz-01.jpg", "img/seri/yapboz-02.jpg", "img/seri/yapboz-03.jpg", "img/seri/yapboz-04.jpg", "img/seri/yapboz-05.jpg", "img/seri/yapboz-06.jpg", "img/seri/yapboz-07.jpg", "img/seri/yapboz-08.jpg", "img/seri/yapboz-09.jpg", "img/seri/yapboz-10.jpg", "img/seri/yapboz-11.jpg", "img/seri/yapboz-12.jpg", "img/seri/yapboz-13.jpg", "img/seri/yapboz-14.jpg", "img/seri/yapboz-15.jpg", "img/seri/yapboz-16.jpg", "img/seri/yapboz-17.jpg", "img/seri/yapboz-18.jpg", "img/seri/yapboz-19.jpg", "img/seri/yapboz-20.jpg", "img/seri/yapboz-21.jpg", "img/seri/yapboz-22.jpg", "img/seri/yapboz-23.jpg", "img/seri/yapboz-24.jpg", "img/seri/yapboz-25.jpg", "img/seri/yapboz-26.jpg", "img/seri/yapboz-27.jpg", "img/seri/yapboz-28.jpg", "img/seri/yapboz-29.jpg", "img/seri/yapboz-30.jpg", "img/seri/yapboz-31.jpg", "img/seri/yapboz-32.jpg", "img/seri/yapboz-33.jpg", "img/seri/yapboz-34.jpg", "img/seri/yapboz-35.jpg", "img/seri/yapboz-36.jpg", "img/seri/yapboz-37.jpg"],
