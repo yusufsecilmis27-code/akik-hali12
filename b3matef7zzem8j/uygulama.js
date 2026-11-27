@@ -272,11 +272,11 @@
   // ---------- Kaydet (yeni / düzenle / sil) ----------
   async function kucult(dosya) {
     const bmp = await createImageBitmap(dosya, { imageOrientation: "from-image" });
-    const o = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+    const o = Math.min(1, 1200 / Math.max(bmp.width, bmp.height));
     const c = document.createElement("canvas");
     c.width = Math.round(bmp.width * o); c.height = Math.round(bmp.height * o);
     c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
-    return new Uint8Array(await (await new Promise((ok) => c.toBlob(ok, "image/jpeg", 0.86))).arrayBuffer());
+    return new Uint8Array(await (await new Promise((ok) => c.toBlob(ok, "image/jpeg", 0.8))).arrayBuffer());
   }
   function durum(ikon, baslik, metin, yuzde) { $("s-ikon").textContent = ikon; $("s-baslik").textContent = baslik; $("s-metin").textContent = metin; $("s-cubuk").style.width = yuzde + "%"; }
 
@@ -287,12 +287,20 @@
     try {
       // 1) yeni fotoğrafları küçült ve GitHub'a blob olarak gönder
       const yeniFotolar = islem === "sil" ? [] : fotolar.filter((f) => f.dosya);
-      const bloblar = [];
-      for (let i = 0; i < yeniFotolar.length; i++) {
-        const bayt = await kucult(yeniFotolar[i].dosya);
-        durum("⬆️", "Fotoğraflar yükleniyor…", `${i + 1} / ${yeniFotolar.length}`, 5 + 55 * (i + 1) / yeniFotolar.length);
-        bloblar.push(anahtar === "deneme" ? "deneme" : (await gh("/git/blobs", { method: "POST", body: JSON.stringify({ content: b64(bayt), encoding: "base64" }) })).sha);
-      }
+      // aynı anda 4 fotoğraf gönderilir; sıra korunur
+      const bloblar = new Array(yeniFotolar.length);
+      let sira = 0, biten = 0;
+      if (yeniFotolar.length) durum("⬆️", "Fotoğraflar yükleniyor…", `0 / ${yeniFotolar.length}`, 5);
+      const isci = async () => {
+        while (sira < yeniFotolar.length) {
+          const i = sira++;
+          const bayt = await kucult(yeniFotolar[i].dosya);
+          bloblar[i] = anahtar === "deneme" ? "deneme" : (await gh("/git/blobs", { method: "POST", body: JSON.stringify({ content: b64(bayt), encoding: "base64" }) })).sha;
+          biten++;
+          durum("⬆️", "Fotoğraflar yükleniyor…", `${biten} / ${yeniFotolar.length}`, 5 + 55 * biten / yeniFotolar.length);
+        }
+      };
+      await Promise.all(Array.from({ length: Math.min(4, yeniFotolar.length) }, isci));
       durum("⬆️", "Kaydediliyor…", "Siteye gönderiliyor.", 65);
       // 2) urunler.js'i güncelle (aynı anda başka değişiklik olursa yeniden dene)
       let sonuc;
@@ -355,22 +363,12 @@
           break;
         } catch (e) { if (e.durum === 422 && deneme < 2) continue; throw e; }
       }
-      // 3) sitenin güncellenmesini bekle
+      // 3) kayıt tamam; site GitHub'da arka planda 2–3 dakikada güncellenir (beklemeye gerek yok)
       const yol = `/tr/urunler/${sonuc.kod.toLowerCase()}/`;
-      durum("🔄", "Site güncelleniyor…", islem === "sil" ? "Ürün siliniyor. 2–4 dakika sürer." : "Kaydedildi. Sitede görünmesi 2–4 dakika sürer.", 75);
-      const bitis = Date.now() + 8 * 60 * 1000;
-      while (Date.now() < bitis && anahtar !== "deneme") {
-        try {
-          const r = await fetch(yol + "?t=" + Date.now(), { cache: "no-store" });
-          if (islem === "sil" ? r.status === 404 : r.ok && new DOMParser().parseFromString(await r.text(), "text/html").title.includes(ad)) break;
-        } catch (e) {}
-        durum("🔄", "Site güncelleniyor…", "Lütfen bekleyin…", Math.min(97, 75 + 22 * (1 - (bitis - Date.now()) / 480000)));
-        await new Promise((ok) => setTimeout(ok, 15000));
-      }
       const link = SITE + yol;
-      if (islem === "sil") { durum("✅", "Ürün silindi", `${duzenlenen.ad} (${sonuc.kod}) siteden kaldırıldı.`, 100); $("s-urun").hidden = $("s-wa").hidden = true; }
+      if (islem === "sil") { durum("✅", "Ürün silindi", `${duzenlenen.ad} (${sonuc.kod}) 2–3 dakika içinde siteden kalkar. Uygulamayı kapatabilirsiniz.`, 100); $("s-urun").hidden = $("s-wa").hidden = true; }
       else {
-        durum("✅", islem === "yeni" ? "Ürün sitede!" : "Değişiklikler kaydedildi", `${ad} (${sonuc.kod}) · 6 dilde`, 100);
+        durum("✅", islem === "yeni" ? "Ürün kaydedildi!" : "Değişiklikler kaydedildi", `${ad} (${sonuc.kod}) 2–3 dakika içinde sitede 6 dilde görünür. Uygulamayı kapatabilir ya da sıradaki ürüne geçebilirsiniz.`, 100);
         $("s-urun").href = link; $("s-wa").href = "https://wa.me/?text=" + encodeURIComponent(`${ad} – ${link}`);
       }
       $("s-linkler").hidden = false;
