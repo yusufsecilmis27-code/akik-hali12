@@ -65,3 +65,7 @@ summary { font-weight: 700; padding: 14px 0; color: var(--soluk); }
 .linkler a, .linkler button, .durum .link-yeni { display: block; margin: 12px 0; padding: 18px; border-radius: 14px; text-align: center; font-weight: 800; font-size: 19px; text-decoration: none; border: 0; width: 100%; font-family: inherit; }
 .link-ana { background: var(--koyu); color: #fff; } .link-wa { background: var(--yesil); color: #fff; }
 .link-yeni { background: #fff; color: var(--koyu); border: 2px solid var(--koyu) !important; }
+/* Ana ekrana ekle */
+.yukle-serit { max-width: 640px; margin: 14px auto 0; padding: 0 18px; }
+.yukle-serit button { width: 100%; min-height: 60px; border: 0; border-radius: 16px; background: var(--altin); color: #fff; font: inherit; font-size: 20px; font-weight: 800; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.yukle-serit p { text-align: center; margin: 8px 0 0; }

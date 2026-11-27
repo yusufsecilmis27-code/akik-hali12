@@ -366,4 +366,21 @@
   if (localStorage.getItem("gh-anahtar")) localStorage.removeItem("gh-anahtar"); // eski sürümden kalan şifresiz anahtar
   if (localStorage.getItem("kasa")) kilitAc(); else ekran("kurulum");
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+
+  // ---------- Ana ekrana ekle (tek dokunuş) ----------
+  const kurulu = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  let yuklemeIstegi = null;
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault(); yuklemeIstegi = e;
+    $("yukle-ipucu").hidden = true; $("yukle-serit").hidden = false;
+  });
+  window.addEventListener("appinstalled", () => { yuklemeIstegi = null; $("yukle-serit").hidden = true; });
+  $("yukle").addEventListener("click", async () => {
+    if (!yuklemeIstegi) { $("yukle-ipucu").hidden = false; return; }
+    yuklemeIstegi.prompt();
+    const { outcome } = await yuklemeIstegi.userChoice;
+    if (outcome === "accepted") { yuklemeIstegi = null; $("yukle-serit").hidden = true; }
+  });
+  // Chrome düğmeyi hemen sunmazsa, telefonda yine de göster (dokununca menü yolunu anlatır)
+  setTimeout(() => { if (!kurulu() && /Android|iPhone|iPad/i.test(navigator.userAgent)) $("yukle-serit").hidden = false; }, 3000);
 })();
