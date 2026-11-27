@@ -27,13 +27,6 @@
   NOT: Ürün kodları (AKS-..., SPT-...) geçicidir; gerçek kodlarla değiştirin.
 */
 const URUNLER = [
-  // Ürün Ekle uygulamasından eklendi (27.11.2026, Emin Seçilmiş)
-  { kod: "AKS-012", ad: "Seri Üretim Polip Halı", adEn: "Mass Production Polyp Carpet", tur: "Makine Halısı", malzeme: "", renk: "",
-    ebatlar: ["160x230","200x290"], etiket: "seri", desenli: true,
-    gorseller: ["img/seri/aks-012-01.jpg","img/seri/aks-012-02.jpg","img/seri/aks-012-03.jpg","img/seri/aks-012-04.jpg","img/seri/aks-012-05.jpg","img/seri/aks-012-06.jpg","img/seri/aks-012-07.jpg","img/seri/aks-012-08.jpg","img/seri/aks-012-09.jpg","img/seri/aks-012-10.jpg","img/seri/aks-012-11.jpg","img/seri/aks-012-12.jpg"],
-    agirlik: "2,400 kg/m²",
-    aciklama: { tr: "Sık dokulu polip salon halısı farklı renk ve desen seçenekleriyle stoklarda.", en: "" } },
-
   // SERİ ÜRETİM
   { kod: "AKS-011", ad: "İhracata Özel Seri", adEn: "Export Series", adAr: "سلسلة خاصة بالتصدير", tur: "Makine Halısı", malzeme: "", renk: "",
     ebatlar: ["İstenilen ebatta üretim"], etiket: "seri", desenli: true,
