@@ -6,7 +6,7 @@
   <script>/* İlk ziyarette tarayıcı diline göre o dilin sayfasını aç; menüden seçilen dil hatırlanır. Arama motoru botları yönlendirilmez. */
   (function(){try{if(/bot|crawl|spider|slurp|lighthouse|inspection|preview/i.test(navigator.userAgent))return;if(localStorage.getItem("dil"))return;
   var A={"tr": "/tr/", "en": "/en/", "ar": "/ar/", "ru": "/ru/", "fr": "/fr/", "ka": "/ka/"},n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").slice(0,2).toLowerCase(),d=n==="az"?"tr":n;
-  if(!A[d])d=A.en?"en":"fr";localStorage.setItem("dil",d);if(d!=="fr"&&A[d])location.replace(A[d]+location.hash);}catch(e){}})();</script>
+  if(!A[d])d=A.en?"en":"fr";localStorage.setItem("dil",d);if(d!=="fr"&&A[d])location.replace(A[d]+location.search+location.hash);}catch(e){}})();</script>
   <title>Fournisseur de tapis en gros de Turquie | Emin Seçilmiş Carpet</title>
   <meta name="description" content="Tapis en gros de Gaziantep, Turquie : tapis tissés machine, tapis antidérapants, sisal et revêtements de sol. Export par conteneur dans le monde entier. Prix sur WhatsApp.">
   <link rel="canonical" href="https://eminsecilmiscarpet.com/fr/">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Tajawal:wght@400;500;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=bb901320">
+  <link rel="stylesheet" href="/css/style.css?v=f2f109dc">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "Emin Seçilmiş Carpet", "legalName": "Akik Halı San. ve Tic. Ltd. Şti.", "url": "https://eminsecilmiscarpet.com/", "logo": "https://eminsecilmiscarpet.com/img/logo.png", "image": "https://eminsecilmiscarpet.com/img/og.jpg", "telephone": "+90 544 536 10 33", "address": {"@type": "PostalAddress", "streetAddress": "Başpınar OSB, Vali Muammer Güler Blv. OSB 2. Bölge No: 28/A", "postalCode": "27600", "addressLocality": "Şehitkamil", "addressRegion": "Gaziantep", "addressCountry": "TR"}, "areaServed": ["TR", "Worldwide"], "description": "Gaziantep toptan halı tedarikçisi: makine halısı, kaymaz taban halı, sisal, yer döşemesi. Wholesale carpet supplier from Turkey."}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Vendez-vous au détail ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, nous vendons uniquement en gros. Nos clients sont des magasins de tapis, des magasins de meubles, des hôtels et des importateurs."}}, {"@type": "Question", "name": "Pouvez-vous produire à nos dimensions ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous produisons nos qualités de série dans la taille, le poids et le motif dont vous avez besoin."}}, {"@type": "Question", "name": "Livrez-vous à l'étranger ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, nous exportons par conteneur et préparons les documents d'export. Voir la page Export pour plus de détails."}}, {"@type": "Question", "name": "Comment obtenir les prix ?", "acceptedAnswer": {"@type": "Answer", "text": "Envoyez-nous simplement le produit qui vous intéresse sur WhatsApp. Les prix dépendent de la quantité et de la destination."}}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VMGYD68XT"></script>
@@ -93,6 +93,7 @@
     </div>
   </section>
 
+  <a class="fuar-serit" href="/fr/icfe-2027/" data-bitis="2027-01-10"><span class="kap">6–9 janvier 2027 : nous serons à Istanbul pour le salon ICFE. Prenez rendez-vous →</span></a>
   <!-- PAZARLAR -->
   <section class="pazarlar" aria-label="Markets">
     <div class="kayan"><div class="kayan-ic" id="ulkeler"></div></div>
@@ -224,7 +225,7 @@
     </div>
     <div class="alt-linkler">
       <h3><span>Menu</span></h3>
-      <a href="/fr/"><span>Accueil</span></a><a href="/fr/products/"><span>Catalogue</span></a><a href="/fr/export/"><span>Export</span></a><a href="/fr/wholesale-turkey/"><span>Turquie</span></a><a href="/fr/about/"><span>À propos</span></a><a href="/fr/blog/"><span>Blog</span></a><a href="/fr/contact/"><span>Contact</span></a>
+      <a href="/fr/"><span>Accueil</span></a><a href="/fr/products/"><span>Catalogue</span></a><a href="/fr/export/"><span>Export</span></a><a href="/fr/wholesale-turkey/"><span>Turquie</span></a><a href="/fr/about/"><span>À propos</span></a><a href="/fr/blog/"><span>Blog</span></a><a href="/fr/contact/"><span>Contact</span></a><a href="/fr/icfe-2027/">ICFE 2027</a>
     </div>
     <div class="alt-linkler">
       <h3><span>Contact</span></h3>
@@ -287,6 +288,6 @@
 <script src="/js/ayarlar.js?v=a5bb0c80"></script>
 <script src="/js/diller.js?v=b90c43da"></script>
 <script src="/js/urunler.js?v=a3c79b02"></script>
-<script src="/js/app.js?v=35d86711"></script>
+<script src="/js/app.js?v=7d5127bf"></script>
 </body>
 </html>

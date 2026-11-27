@@ -1,0 +1,79 @@
+{
+ "bitis": "2027-01-10",
+ "slug": {
+  "tr": "icfe-2027-fuar",
+  "en": "icfe-2027"
+ },
+ "baslik": {
+  "tr": "ICFE 2027 İstanbul Halı Fuarı'nda görüşelim | Emin Seçilmiş Carpet",
+  "en": "Meet us at ICFE 2027 Istanbul Carpet Expo | Emin Seçilmiş Carpet",
+  "ar": "لنلتقِ في معرض ICFE 2027 للسجاد في إسطنبول | Emin Seçilmiş Carpet",
+  "ru": "Встретимся на выставке ковров ICFE 2027 в Стамбуле | Emin Seçilmiş Carpet",
+  "fr": "Rencontrons-nous au salon du tapis ICFE 2027 à Istanbul | Emin Seçilmiş Carpet",
+  "ka": "შევხვდეთ ხალიჩების გამოფენაზე ICFE 2027 სტამბოლში | Emin Seçilmiş Carpet"
+ },
+ "aciklama": {
+  "tr": "6–9 Ocak 2027'de ICFE International Carpet and Flooring Expo için İstanbul'dayız. Toptan halı, kaymaz taban halı ve yer döşemesi için fuarda görüşme ayarlayın.",
+  "en": "We will be in Istanbul for ICFE International Carpet and Flooring Expo, 6–9 January 2027. Book a meeting about wholesale carpets, non-slip rugs and floor coverings.",
+  "ar": "سنكون في إسطنبول خلال معرض ICFE الدولي للسجاد والأرضيات، 6–9 يناير 2027. احجز موعدًا للحديث عن السجاد بالجملة والسجاد المانع للانزلاق والأرضيات.",
+  "ru": "6–9 января 2027 года мы будем в Стамбуле на выставке ICFE International Carpet and Flooring Expo. Договоритесь о встрече по оптовым коврам, нескользящим коврам и напольным покрытиям.",
+  "fr": "Nous serons à Istanbul pour le salon ICFE International Carpet and Flooring Expo, du 6 au 9 janvier 2027. Prenez rendez-vous pour parler tapis en gros, tapis antidérapants et revêtements de sol.",
+  "ka": "6–9 იანვარს, 2027, სტამბოლში ვიქნებით გამოფენაზე ICFE International Carpet and Flooring Expo. დანიშნეთ შეხვედრა ხალიჩების საბითუმო შესყიდვაზე."
+ },
+ "h1": {
+  "tr": "ICFE 2027 boyunca İstanbul'dayız",
+  "en": "We'll be in Istanbul for ICFE 2027",
+  "ar": "سنكون في إسطنبول خلال معرض ICFE 2027",
+  "ru": "Мы будем в Стамбуле на ICFE 2027",
+  "fr": "Nous serons à Istanbul pour l'ICFE 2027",
+  "ka": "ICFE 2027-ის დროს სტამბოლში ვიქნებით"
+ },
+ "alt": {
+  "tr": "International Carpet and Flooring Expo · 6–9 Ocak 2027 · İstanbul Fuar Merkezi (İFM), Yeşilköy",
+  "en": "International Carpet and Flooring Expo · 6–9 January 2027 · Istanbul Expo Center (İFM), Yeşilköy",
+  "ar": "International Carpet and Flooring Expo · 6–9 يناير 2027 · مركز إسطنبول للمعارض (İFM)، يشيل كوي",
+  "ru": "International Carpet and Flooring Expo · 6–9 января 2027 · Стамбульский выставочный центр (İFM), Ешилькёй",
+  "fr": "International Carpet and Flooring Expo · 6–9 janvier 2027 · Istanbul Expo Center (İFM), Yeşilköy",
+  "ka": "International Carpet and Flooring Expo · 6–9 იანვარი, 2027 · სტამბოლის საგამოფენო ცენტრი (İFM), იეშილქოი"
+ },
+ "wa": {
+  "tr": "Merhaba, ICFE 2027 fuarında sizinle görüşmek istiyorum.",
+  "en": "Hello, I would like to meet you during ICFE 2027 in Istanbul.",
+  "ar": "مرحبًا، أود مقابلتكم خلال معرض ICFE 2027 في إسطنبول.",
+  "ru": "Здравствуйте, я хотел бы встретиться с вами во время ICFE 2027 в Стамбуле.",
+  "fr": "Bonjour, je souhaiterais vous rencontrer pendant l'ICFE 2027 à Istanbul.",
+  "ka": "გამარჯობა, მსურს თქვენთან შეხვედრა ICFE 2027-ის დროს სტამბოლში."
+ },
+ "buton": {
+  "tr": "WhatsApp'tan görüşme ayarla",
+  "en": "Book a meeting on WhatsApp",
+  "ar": "احجز موعدًا عبر واتساب",
+  "ru": "Договориться о встрече в WhatsApp",
+  "fr": "Prendre rendez-vous sur WhatsApp",
+  "ka": "შეხვედრის დანიშვნა WhatsApp-ით"
+ },
+ "duyuru": {
+  "tr": "6–9 Ocak 2027: ICFE Halı Fuarı için İstanbul'dayız. Görüşme ayarlayın →",
+  "en": "6–9 January 2027: we'll be in Istanbul for ICFE Carpet Expo. Book a meeting →",
+  "ar": "6–9 يناير 2027: سنكون في إسطنبول لمعرض ICFE للسجاد. احجز موعدًا ←",
+  "ru": "6–9 января 2027: мы в Стамбуле на выставке ковров ICFE. Назначьте встречу →",
+  "fr": "6–9 janvier 2027 : nous serons à Istanbul pour le salon ICFE. Prenez rendez-vous →",
+  "ka": "6–9 იანვარი, 2027: ICFE ხალიჩების გამოფენაზე სტამბოლში ვართ. დანიშნეთ შეხვედრა →"
+ },
+ "urunler_baslik": {
+  "tr": "Görüşmede konuşabileceğimiz ürünler",
+  "en": "Products we can discuss",
+  "ar": "منتجات يمكننا مناقشتها",
+  "ru": "Товары, которые можно обсудить",
+  "fr": "Produits dont nous pouvons parler",
+  "ka": "პროდუქტები, რომლებზეც შეგვიძლია ვისაუბროთ"
+ },
+ "icerik": {
+  "tr": "<p>Akik Halı (Emin Seçilmiş Carpet) olarak 6–9 Ocak 2027 tarihlerinde İstanbul Fuar Merkezi'nde (İFM) düzenlenen <b>ICFE – International Carpet and Flooring Expo</b> için İstanbul'dayız. Bu yıl stant açmıyoruz; fuar boyunca alıcılar, halı mağazaları, yer döşemesi bayileri ve ithalatçılarla birebir görüşüyoruz.</p><h2>Neden görüşelim?</h2><ul><li>Siparişinizi aracı olmadan, doğrudan Akik Halı'nın sahibi Emin Seçilmiş ile konuşursunuz.</li><li>Seri üretim kalitelerimizi istediğiniz ebat, ağırlık ve desende üretiyoruz; spot halılarımız stoktan sevk edilir.</li><li>Makine halısı, dijital baskı kaymaz taban halı, kaymaz taban rulo halı, sisal, cross dokuma ve yapboz halıyı tek tedarikçiden alabilirsiniz.</li><li>Yurt içinde 81 ile faturalı sevkiyat, yurt dışına konteyner bazında ihracat ve tüm ihracat belgeleri.</li></ul><h2>Nasıl görüşme ayarlanır?</h2><p>WhatsApp'tan yazın; hangi gün fuarda olacağınızı ve ilgilendiğiniz ürünleri belirtin. Fuar alanında buluşacağımız yeri ve saati birlikte belirleyelim. Görüşmeden önce güncel ürün kataloğumuzu ve fiyat listemizi de gönderebiliriz.</p>",
+  "en": "<p>Akik Halı (Emin Seçilmiş Carpet) will be in Istanbul for <b>ICFE – International Carpet and Flooring Expo</b>, held at the Istanbul Expo Center (İFM) from 6 to 9 January 2027. We are not exhibiting this year; during the fair we are meeting buyers, carpet retailers, flooring dealers and importers one to one.</p><h2>Why meet us?</h2><ul><li>You talk directly to Emin Seçilmiş, the owner of Akik Halı — no middleman.</li><li>We produce our series qualities in the size, weight and design you need; our stock rugs ship from the warehouse.</li><li>Machine-made rugs, digital print non-slip rugs, non-slip roll carpets, sisal, cross weave and puzzle rugs from one supplier.</li><li>Container export with all export documents (EUR.1 / A.TR, Form A, certificate of origin), private label available.</li></ul><h2>How to book a meeting</h2><p>Write to us on WhatsApp with the day you will be at the fair and the products you are interested in. We will agree on a time and a meeting point at the venue. We can also send our current catalogue and price list before we meet.</p>",
+  "ar": "<p>ستكون Akik Halı (Emin Seçilmiş Carpet) في إسطنبول خلال معرض <b>ICFE – International Carpet and Flooring Expo</b> الذي يُقام في مركز إسطنبول للمعارض (İFM) من 6 إلى 9 يناير 2027. لن نشارك بجناح هذا العام؛ وخلال المعرض نلتقي بالمشترين ومتاجر السجاد وموزعي الأرضيات والمستوردين لقاءات فردية.</p><h2>لماذا تلتقي بنا؟</h2><ul><li>تتحدث مباشرة مع المؤسس أمين سچيلمش دون وسطاء.</li><li>ننتج أصناف الإنتاج المتسلسل بالمقاس والوزن والتصميم الذي تحتاجه، ويُشحن سجاد المخزون من المستودع.</li><li>سجاد آلي، سجاد بطباعة رقمية مانع للانزلاق، سجاد رول مانع للانزلاق، سيزال، نسيج كروس وسجاد بازل من مورد واحد.</li><li>تصدير بالحاويات مع جميع مستندات التصدير (EUR.1 / A.TR، Form A، شهادة المنشأ)، وإمكانية الإنتاج بعلامتك التجارية.</li></ul><h2>كيف تحجز موعدًا؟</h2><p>راسلنا عبر واتساب واذكر اليوم الذي ستكون فيه في المعرض والمنتجات التي تهمك. سنتفق على الوقت ومكان اللقاء في أرض المعرض، ويمكننا إرسال الكتالوج وقائمة الأسعار الحالية قبل اللقاء.</p>",
+  "ru": "<p>Akik Halı (Emin Seçilmiş Carpet) будет в Стамбуле на выставке <b>ICFE – International Carpet and Flooring Expo</b>, которая пройдёт в Стамбульском выставочном центре (İFM) с 6 по 9 января 2027 года. В этом году у нас нет стенда: во время выставки мы проводим личные встречи с покупателями, ковровыми магазинами, дилерами напольных покрытий и импортёрами.</p><h2>Зачем встречаться с нами?</h2><ul><li>Вы говорите напрямую с основателем компании Эмином Сечилмишем — без посредников.</li><li>Серийные модели мы производим в нужном вам размере, весе и дизайне; ковры со склада отгружаются сразу.</li><li>Машинные ковры, ковры с цифровой печатью на нескользящей основе, нескользящие рулонные ковры, сизаль, кросс-плетение и ковры-пазлы у одного поставщика.</li><li>Экспорт контейнерами со всеми документами (EUR.1 / A.TR, Form A, сертификат происхождения), возможна собственная марка.</li></ul><h2>Как договориться о встрече</h2><p>Напишите нам в WhatsApp, в какой день вы будете на выставке и какие товары вас интересуют. Мы согласуем время и место встречи на площадке. До встречи можем прислать актуальный каталог и прайс-лист.</p>",
+  "fr": "<p>Akik Halı (Emin Seçilmiş Carpet) sera à Istanbul pour <b>ICFE – International Carpet and Flooring Expo</b>, qui se tient à l'Istanbul Expo Center (İFM) du 6 au 9 janvier 2027. Nous n'exposons pas cette année : pendant le salon, nous rencontrons acheteurs, magasins de tapis, revendeurs de revêtements de sol et importateurs en rendez-vous individuels.</p><h2>Pourquoi nous rencontrer ?</h2><ul><li>Vous parlez directement au fondateur, Emin Seçilmiş, sans intermédiaire.</li><li>Nous produisons nos qualités de série dans la taille, le poids et le motif souhaités ; nos tapis en stock partent de l'entrepôt.</li><li>Tapis tissés machine, tapis antidérapants à impression numérique, moquettes en rouleau antidérapantes, sisal, tissage cross et tapis puzzle chez un seul fournisseur.</li><li>Export par conteneur avec tous les documents (EUR.1 / A.TR, Form A, certificat d'origine), marque privée possible.</li></ul><h2>Comment prendre rendez-vous</h2><p>Écrivez-nous sur WhatsApp en indiquant le jour de votre présence au salon et les produits qui vous intéressent. Nous fixerons ensemble l'heure et le lieu de rendez-vous sur le site. Nous pouvons aussi vous envoyer notre catalogue et notre liste de prix avant la rencontre.</p>",
+  "ka": "<p>Akik Halı (Emin Seçilmiş Carpet) სტამბოლში იქნება გამოფენაზე <b>ICFE – International Carpet and Flooring Expo</b>, რომელიც სტამბოლის საგამოფენო ცენტრში (İFM) 2027 წლის 6–9 იანვარს გაიმართება. წელს სტენდი არ გვაქვს: გამოფენის დროს პირადად ვხვდებით მყიდველებს, ხალიჩის მაღაზიებს, იატაკის საფარის დილერებსა და იმპორტიორებს.</p><h2>რატომ შევხვდეთ?</h2><ul><li>პირდაპირ ესაუბრებით კომპანიის დამფუძნებელს, ემინ სეჩილმიშს — შუამავლის გარეშე.</li><li>სერიულ მოდელებს ვამზადებთ თქვენთვის საჭირო ზომით, წონითა და დიზაინით; საწყობის ხალიჩები მაშინვე იგზავნება.</li><li>მანქანური ხალიჩები, ციფრული ბეჭდვის მოუცურებელი ხალიჩები, მოუცურებელი რულონური ხალიჩები, სიზალი, კროს ქსოვა და ფაზლ-ხალიჩები ერთი მომწოდებლისგან.</li><li>ექსპორტი კონტეინერებით ყველა დოკუმენტით (EUR.1 / A.TR, Form A, წარმოშობის სერტიფიკატი), შესაძლებელია საკუთარი ბრენდი.</li></ul><h2>როგორ დავნიშნოთ შეხვედრა</h2><p>მოგვწერეთ WhatsApp-ზე, რომელ დღეს იქნებით გამოფენაზე და რომელი პროდუქტები გაინტერესებთ. ერთად შევთანხმდებით დროსა და შეხვედრის ადგილზე. შეხვედრამდე შეგვიძლია გამოგიგზავნოთ აქტუალური კატალოგი და ფასები.</p>"
+ }
+}

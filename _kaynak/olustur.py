@@ -30,7 +30,7 @@ GA = "G-2VMGYD68XT"
 SLUG = {"index": ("", ""), "urunler": ("urunler", "products"), "ihracat": ("ihracat", "export"),
         "yurtici": ("yurtici", "wholesale-turkey"), "hakkimizda": ("hakkimizda", "about"),
         "iletisim": ("iletisim", "contact"), "kvkk": ("kvkk", "privacy"), "blog": ("blog", "blog"),
-        "il81": ("toptan-hali-81-il", None)}
+        "il81": ("toptan-hali-81-il", None), "fuar": ("icfe-2027-fuar", "icfe-2027")}
 KAYNAK_SAYFALAR = ["index", "urunler", "ihracat", "yurtici", "hakkimizda", "iletisim", "kvkk"]
 
 def yol(sayfa, L):
@@ -87,6 +87,7 @@ def cevir_en(en, L, tr=None):
     return v
 
 SEO = json.load(open(os.path.join(K, "seo.json"), encoding="utf-8"))
+FUAR = json.load(open(os.path.join(K, "fuar.json"), encoding="utf-8")) if os.path.exists(os.path.join(K, "fuar.json")) else None
 BLOG = json.load(open(os.path.join(K, "blog.json"), encoding="utf-8")) if os.path.exists(os.path.join(K, "blog.json")) else []
 
 # ---------- data-l işleme ----------
@@ -241,6 +242,7 @@ def ust_alt(L, aktif, alternatif):
     menu = "".join(f'<a href="{s}.html"{" aria-current=\"page\"" if s == aktif else ""}><span data-l="en">{en}</span><span data-l="tr">{tr}</span></a>' for s, en, tr in MENU)
     altmenu = "".join(f'<a href="{s}.html"><span data-l="en">{en}</span><span data-l="tr">{tr}</span></a>' for s, en, tr in MENU)
     if L == "tr": altmenu += '<a href="il81.html">81 İle Toptan Halı</a>'
+    if FUAR and BUGUN < FUAR["bitis"]: altmenu += '<a href="fuar.html">ICFE 2027</a>'
     diller = f'<details class="dil-sec"><summary aria-label="Language">{L.upper()}</summary><div class="dil-liste">' + "".join(
         f'<a href="{alternatif.get(L2) or yol("index", L2)}" hreflang="{L2}" lang="{L2}"{" class=\"aktif\"" if L2 == L else ""}>{DIL_AD[L2]} <small>{L2.upper()}</small></a>'
         for L2 in DILLER) + "</div></details>"
@@ -261,7 +263,7 @@ def bas(L, baslik, aciklama, adres, alternatif, ld=None, robots=None, og_tur="we
   <script>/* İlk ziyarette tarayıcı diline göre o dilin sayfasını aç; menüden seçilen dil hatırlanır. Arama motoru botları yönlendirilmez. */
   (function(){{try{{if(/bot|crawl|spider|slurp|lighthouse|inspection|preview/i.test(navigator.userAgent))return;if(localStorage.getItem("dil"))return;
   var A={yon},n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").slice(0,2).toLowerCase(),d=n==="az"?"tr":n;
-  if(!A[d])d=A.en?"en":"{L}";localStorage.setItem("dil",d);if(d!=="{L}"&&A[d])location.replace(A[d]+location.hash);}}catch(e){{}}}})();</script>
+  if(!A[d])d=A.en?"en":"{L}";localStorage.setItem("dil",d);if(d!=="{L}"&&A[d])location.replace(A[d]+location.search+location.hash);}}catch(e){{}}}})();</script>
   <title>{e(baslik)}</title>
   <meta name="description" content="{e(aciklama)}">{rb}
   <link rel="canonical" href="{SITE}{adres}">{alt}
@@ -337,6 +339,8 @@ def kaynak_sayfalar():
             if ad == "index":
                 seri = [u for u in URUNLER if u.get("etiket") == "seri"][:4]
                 govde = govde.replace('<div id="vitrin" class="izgara"></div>', '<div id="vitrin" class="izgara">' + "".join(kart(u, L) for u in seri) + "</div>")
+                if FUAR and BUGUN < FUAR["bitis"]:
+                    govde = govde.replace("<!-- PAZARLAR -->", f'<a class="fuar-serit" href="fuar.html" data-bitis="{FUAR["bitis"]}"><span class="kap">{e(FUAR["duyuru"][L])}</span></a>' + chr(10) + "  <!-- PAZARLAR -->", 1)
             if ad == "yurtici" and L == "tr":
                 govde = govde.replace("</main>", '''<section class="bolum"><div class="kap dar">
   <h2>Türkiye'nin 81 iline toptan halı</h2>
@@ -495,6 +499,26 @@ def il81_sayfasi():
     head = bas("tr", baslik, aciklama, yol("il81", "tr"), alternatif, [ORG] + sss_ld(govde))
     sayfa_yaz("tr", yol("il81", "tr"), head, govde, "yurtici", alternatif)
 
+def fuar_sayfasi():
+    if not FUAR: return
+    F = FUAR
+    alternatif = {L: yol("fuar", L) for L in DILLER}
+    secili = [u for k in ("AKS-004", "AKS-006", "AKS-001", "AKS-011") for u in URUNLER if u["kod"] == k]
+    for L in DILLER:
+        govde = f'''<main>
+  <section class="sayfa-bas"><div class="sayfa-bas-gorsel" style="background-image:url(/img/o/hero/2.webp)"></div>
+    <div class="kap sayfa-bas-ic"><p class="yol-iz"><a href="index.html">{et("home", L)}</a> / ICFE 2027</p>
+    <h1>{e(F["h1"][L])}</h1><p>{e(F["alt"][L])}</p>
+    <div class="butonlar" style="margin-top:22px"><a class="btn btn-wa" href="{e(wa_link(F["wa"][L]))}" target="_blank" rel="noopener">{e(F["buton"][L])}</a></div></div></section>
+  <section class="bolum bolum-sayfa"><article class="kap yazi">{F["icerik"][L]}
+    <div class="yazi-cta"><p>{e(F["alt"][L])}</p><a class="btn btn-wa" href="{e(wa_link(F["wa"][L]))}" target="_blank" rel="noopener">{e(F["buton"][L])}</a></div>
+  </article></section>
+  <section class="bolum bolum-gri"><div class="kap"><div class="bolum-baslik"><h2>{e(F["urunler_baslik"][L])}</h2></div>
+    <div class="izgara">{"".join(kart(u, L) for u in secili)}</div></div></section>
+</main>'''
+        head = bas(L, F["baslik"][L], F["aciklama"][L], yol("fuar", L), alternatif, [ORG])
+        sayfa_yaz(L, yol("fuar", L), head, govde, "", alternatif)
+
 def kok_sayfalar():
     # Ana adres: ziyaretçinin diline göre yönlendirir (x-default)
     linkler = "".join(f'<a href="/{L}/" hreflang="{L}" lang="{L}">{DIL_AD[L]}</a> ' for L in DILLER)
@@ -506,7 +530,7 @@ def kok_sayfalar():
 <link rel="canonical" href="{SITE}/">{alt}<link rel="alternate" hreflang="x-default" href="{SITE}/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(){{var d=["tr","en","ar","ru","fr","ka"],k;try{{k=localStorage.getItem("dil")}}catch(e){{}}
-var n=(navigator.language||"en").slice(0,2).toLowerCase();var s=d.indexOf(k)>-1?k:d.indexOf(n)>-1?n:(n==="az"?"tr":"en");location.replace("/"+s+"/");}})();</script>
+var n=(navigator.language||"en").slice(0,2).toLowerCase();var s=d.indexOf(k)>-1?k:d.indexOf(n)>-1?n:(n==="az"?"tr":"en");location.replace("/"+s+"/"+location.search+location.hash);}})();</script>
 <style>body{{font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;background:#fafaf8}}a{{margin:6px;color:#151515}}</style>
 </head><body><main><h1>Emin Seçilmiş Carpet</h1><p>{linkler}</p></main></body></html>
 ''')
@@ -529,6 +553,7 @@ if __name__ == "__main__":
     urun_sayfalari()
     blog_sayfalari()
     il81_sayfasi()
+    fuar_sayfasi()
     kok_sayfalar()
     site_haritasi()
     print(f"Tamam: {len(HARITA)} sayfa üretildi.")

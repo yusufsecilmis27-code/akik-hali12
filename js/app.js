@@ -49,6 +49,9 @@
   const yil = document.getElementById("yil");
   if (yil) yil.textContent = new Date().getFullYear();
 
+  // Süresi geçen duyurular (ör. fuar şeridi) kendiliğinden kaybolur
+  document.querySelectorAll("[data-bitis]").forEach((el) => { if (Date.now() >= Date.parse(el.dataset.bitis)) el.remove(); });
+
   // Ülke şeridi (kesintisiz kayması için iki kez yazılır)
   const ulkeler = document.getElementById("ulkeler");
   if (ulkeler && A.ulkeler && !ulkeler.children.length) {

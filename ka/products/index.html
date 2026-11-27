@@ -6,7 +6,7 @@
   <script>/* İlk ziyarette tarayıcı diline göre o dilin sayfasını aç; menüden seçilen dil hatırlanır. Arama motoru botları yönlendirilmez. */
   (function(){try{if(/bot|crawl|spider|slurp|lighthouse|inspection|preview/i.test(navigator.userAgent))return;if(localStorage.getItem("dil"))return;
   var A={"tr": "/tr/urunler/", "en": "/en/products/", "ar": "/ar/products/", "ru": "/ru/products/", "fr": "/fr/products/", "ka": "/ka/products/"},n=((navigator.languages&&navigator.languages[0])||navigator.language||"en").slice(0,2).toLowerCase(),d=n==="az"?"tr":n;
-  if(!A[d])d=A.en?"en":"ka";localStorage.setItem("dil",d);if(d!=="ka"&&A[d])location.replace(A[d]+location.hash);}catch(e){}})();</script>
+  if(!A[d])d=A.en?"en":"ka";localStorage.setItem("dil",d);if(d!=="ka"&&A[d])location.replace(A[d]+location.search+location.hash);}catch(e){}})();</script>
   <title>ხალიჩების კატალოგი საბითუმოდ – მანქანური, მოუცურებელი, სიზალი | Emin Seçilmiş Carpet</title>
   <meta name="description" content="ხალიჩების საბითუმო კატალოგი: სერიული და საწყობის მანქანური ხალიჩები, ციფრული ბეჭდვის მოუცურებელი ხალიჩები, რულონური ხალიჩები, სიზალი და ფაზლ-ხალიჩები.">
   <link rel="canonical" href="https://eminsecilmiscarpet.com/ka/products/">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Tajawal:wght@400;500;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=bb901320">
+  <link rel="stylesheet" href="/css/style.css?v=f2f109dc">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VMGYD68XT"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2VMGYD68XT');</script>
 </head>
@@ -265,7 +265,7 @@
     </div>
     <div class="alt-linkler">
       <h3><span>მენიუ</span></h3>
-      <a href="/ka/"><span>მთავარი</span></a><a href="/ka/products/"><span>კატალოგი</span></a><a href="/ka/export/"><span>ექსპორტი</span></a><a href="/ka/wholesale-turkey/"><span>თურქეთში</span></a><a href="/ka/about/"><span>ჩვენ შესახებ</span></a><a href="/ka/blog/"><span>ბლოგი</span></a><a href="/ka/contact/"><span>კონტაქტი</span></a>
+      <a href="/ka/"><span>მთავარი</span></a><a href="/ka/products/"><span>კატალოგი</span></a><a href="/ka/export/"><span>ექსპორტი</span></a><a href="/ka/wholesale-turkey/"><span>თურქეთში</span></a><a href="/ka/about/"><span>ჩვენ შესახებ</span></a><a href="/ka/blog/"><span>ბლოგი</span></a><a href="/ka/contact/"><span>კონტაქტი</span></a><a href="/ka/icfe-2027/">ICFE 2027</a>
     </div>
     <div class="alt-linkler">
       <h3><span>კონტაქტი</span></h3>
@@ -328,6 +328,6 @@
 <script src="/js/ayarlar.js?v=a5bb0c80"></script>
 <script src="/js/diller.js?v=b90c43da"></script>
 <script src="/js/urunler.js?v=a3c79b02"></script>
-<script src="/js/app.js?v=35d86711"></script>
+<script src="/js/app.js?v=7d5127bf"></script>
 </body>
 </html>
