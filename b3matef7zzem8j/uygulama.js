@@ -9,6 +9,8 @@
   const SITE = "https://eminsecilmiscarpet.com";
   const EBATLAR = ["80x150", "100x200", "120x180", "160x230", "200x290", "240x340", "300x400", "İstenilen ebatta üretim"];
   const KILIT_SURE = 2 * 60 * 1000; // arka planda bu kadar kalınca tekrar PIN sorulur
+  const KLASOR = location.pathname.split("/").filter(Boolean)[0]; // uygulamanın gizli klasör adı
+  const ORTAK_TUR = 2000000; // sitedeki ortak kasa için PBKDF2 tur sayısı (her PIN denemesini yavaşlatır)
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -30,21 +32,36 @@
   const b64Bayt = (b) => Uint8Array.from(atob(b.replace(/\n/g, "")), (c) => c.charCodeAt(0));
   const metinB64 = (t) => b64(new TextEncoder().encode(t));
   const b64Metin = (b) => new TextDecoder().decode(b64Bayt(b));
-  async function anahtarTuret(pin, tuz) {
+  async function anahtarTuret(pin, tuz, tur = 250000) {
     const ham = await crypto.subtle.importKey("raw", new TextEncoder().encode(pin), "PBKDF2", false, ["deriveKey"]);
-    return crypto.subtle.deriveKey({ name: "PBKDF2", salt: tuz, iterations: 250000, hash: "SHA-256" }, ham, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+    return crypto.subtle.deriveKey({ name: "PBKDF2", salt: tuz, iterations: tur, hash: "SHA-256" }, ham, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
   }
-  async function kasaKaydet(pin, veri) {
+  async function kasaOlustur(pin, veri, tur) {
     const tuz = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
-    const sifreli = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, await anahtarTuret(pin, tuz), new TextEncoder().encode(JSON.stringify(veri)));
-    localStorage.setItem("kasa", JSON.stringify({ ad: veri.ad, tuz: b64(tuz), iv: b64(iv), veri: b64(new Uint8Array(sifreli)) }));
+    const sifreli = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, await anahtarTuret(pin, tuz, tur), new TextEncoder().encode(JSON.stringify(veri)));
+    return { ad: veri.ad, tur, tuz: b64(tuz), iv: b64(iv), veri: b64(new Uint8Array(sifreli)) };
   }
+  async function kasaKaydet(pin, veri) { localStorage.setItem("kasa", JSON.stringify(await kasaOlustur(pin, veri, 250000))); }
   async function kasaAc(pin) {
     const k = JSON.parse(localStorage.getItem("kasa"));
-    const acik = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64Bayt(k.iv) }, await anahtarTuret(pin, b64Bayt(k.tuz)), b64Bayt(k.veri));
+    const acik = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64Bayt(k.iv) }, await anahtarTuret(pin, b64Bayt(k.tuz), k.tur || 250000), b64Bayt(k.veri));
     return JSON.parse(new TextDecoder().decode(acik));
   }
   function hepsiniSil() { localStorage.removeItem("kasa"); localStorage.removeItem("pin-hata"); localStorage.removeItem("gh-anahtar"); anahtar = ""; }
+
+  // ---------- Ortak kasa: her cihazda sadece PIN ----------
+  // Şifreli anahtar sitede <gizli klasör>/kasa.json olarak durur; yeni cihaz bunu indirip PIN ile açar.
+  async function ortakKasaGetir() {
+    try { const r = await fetch("kasa.json?t=" + Date.now(), { cache: "no-store" }); return r.ok ? await r.json() : null; } catch (e) { return null; }
+  }
+  async function ortakKasaYayinla(pin, veri) {
+    if (veri.anahtar === "deneme") return;
+    const yol = "/contents/" + KLASOR + "/kasa.json";
+    let sha;
+    try { sha = (await gh(yol)).sha; } catch (e) { if (e.durum !== 404) throw e; }
+    const kasa = await kasaOlustur(pin, veri, ORTAK_TUR);
+    await gh(yol, { method: "PUT", body: JSON.stringify({ message: "Ürün Ekle: ortak giriş güncellendi", content: metinB64(JSON.stringify(kasa) ), ...(sha ? { sha } : {}) }) });
+  }
 
   // ---------- Kurulum ----------
   $("kurulum-kaydet").addEventListener("click", async () => {
@@ -59,7 +76,8 @@
       anahtar = a;
       if (a !== "deneme") await gh("");
       await kasaKaydet(p, { ad, tel, anahtar: a });
-      localStorage.removeItem("pin-hata");
+      if (a !== "deneme") await ortakKasaYayinla(p, { ad, tel, anahtar: a });
+      localStorage.removeItem("pin-hata"); localStorage.removeItem("bloke");
       kullanici = { ad, tel };
       ["k-anahtar", "k-pin", "k-pin2"].forEach((id) => ($(id).value = ""));
       listeAc();
@@ -92,14 +110,16 @@
     if (pinGirdi.length >= 6) return;
     pinGirdi += t; noktaCiz();
     if (pinGirdi.length < 6) return;
+    $("pin-mesaj").textContent = "Kontrol ediliyor…";
     try {
       const v = await kasaAc(pinGirdi);
       anahtar = v.anahtar; kullanici = { ad: v.ad, tel: v.tel };
-      localStorage.removeItem("pin-hata");
+      localStorage.removeItem("pin-hata"); $("pin-mesaj").textContent = "";
+      if (!(await ortakKasaGetir())) ortakKasaYayinla(pinGirdi, v).catch(() => {}); // sitede yoksa bir kez koy
       listeAc();
     } catch (e) {
       const hata = (+localStorage.getItem("pin-hata") || 0) + 1;
-      if (hata >= 3) { hepsiniSil(); return ekran("bloke"); }
+      if (hata >= 3) { hepsiniSil(); localStorage.setItem("bloke", "1"); return ekran("bloke"); }
       localStorage.setItem("pin-hata", hata);
       $("noktalar").classList.add("salla"); setTimeout(() => $("noktalar").classList.remove("salla"), 450);
       $("pin-mesaj").textContent = `Yanlış PIN. ${3 - hata} deneme hakkınız kaldı.`;
@@ -364,7 +384,15 @@
 
   // ---------- Başlangıç ----------
   if (localStorage.getItem("gh-anahtar")) localStorage.removeItem("gh-anahtar"); // eski sürümden kalan şifresiz anahtar
-  if (localStorage.getItem("kasa")) kilitAc(); else ekran("kurulum");
+  (async () => {
+    if (localStorage.getItem("bloke")) return ekran("bloke");
+    if (!localStorage.getItem("kasa")) {
+      const k = await ortakKasaGetir();
+      if (!k) return ekran("kurulum");
+      localStorage.setItem("kasa", JSON.stringify(k));
+    }
+    kilitAc();
+  })();
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 
   // ---------- Ana ekrana ekle (tek dokunuş) ----------
