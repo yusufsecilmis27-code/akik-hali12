@@ -30,7 +30,8 @@ GA = "G-2VMGYD68XT"
 SLUG = {"index": ("", ""), "urunler": ("urunler", "products"), "ihracat": ("ihracat", "export"),
         "yurtici": ("yurtici", "wholesale-turkey"), "hakkimizda": ("hakkimizda", "about"),
         "iletisim": ("iletisim", "contact"), "kvkk": ("kvkk", "privacy"), "blog": ("blog", "blog"),
-        "il81": ("toptan-hali-81-il", None), "fuar": ("icfe-2027-fuar", "icfe-2027")}
+        "il81": ("toptan-hali-81-il", None), "fuar": ("icfe-2027-fuar", "icfe-2027"),
+        "pazar": ("ihracat-pazarlari", "export-markets")}
 KAYNAK_SAYFALAR = ["index", "urunler", "ihracat", "yurtici", "hakkimizda", "iletisim", "kvkk"]
 
 def yol(sayfa, L):
@@ -88,6 +89,7 @@ def cevir_en(en, L, tr=None):
 
 SEO = json.load(open(os.path.join(K, "seo.json"), encoding="utf-8"))
 FUAR = json.load(open(os.path.join(K, "fuar.json"), encoding="utf-8")) if os.path.exists(os.path.join(K, "fuar.json")) else None
+PAZAR = json.load(open(os.path.join(K, "pazarlar.json"), encoding="utf-8")) if os.path.exists(os.path.join(K, "pazarlar.json")) else None
 BLOG = json.load(open(os.path.join(K, "blog.json"), encoding="utf-8")) if os.path.exists(os.path.join(K, "blog.json")) else []
 
 # ---------- data-l işleme ----------
@@ -242,6 +244,7 @@ def ust_alt(L, aktif, alternatif):
     menu = "".join(f'<a href="{s}.html"{" aria-current=\"page\"" if s == aktif else ""}><span data-l="en">{en}</span><span data-l="tr">{tr}</span></a>' for s, en, tr in MENU)
     altmenu = "".join(f'<a href="{s}.html"><span data-l="en">{en}</span><span data-l="tr">{tr}</span></a>' for s, en, tr in MENU)
     if L == "tr": altmenu += '<a href="il81.html">81 İle Toptan Halı</a>'
+    if PAZAR: altmenu += f'<a href="pazar.html">{e(PAZAR["metin"]["link"][L])}</a>'
     if FUAR and BUGUN < FUAR["bitis"]: altmenu += '<a href="fuar.html">ICFE 2027</a>'
     diller = f'<details class="dil-sec"><summary aria-label="Language">{L.upper()}</summary><div class="dil-liste">' + "".join(
         f'<a href="{alternatif.get(L2) or yol("index", L2)}" hreflang="{L2}" lang="{L2}"{" class=\"aktif\"" if L2 == L else ""}>{DIL_AD[L2]} <small>{L2.upper()}</small></a>'
@@ -341,6 +344,13 @@ def kaynak_sayfalar():
                 govde = govde.replace('<div id="vitrin" class="izgara"></div>', '<div id="vitrin" class="izgara">' + "".join(kart(u, L) for u in seri) + "</div>")
                 if FUAR and BUGUN < FUAR["bitis"]:
                     govde = govde.replace("<!-- PAZARLAR -->", f'<a class="fuar-serit" href="fuar.html" data-bitis="{FUAR["bitis"]}"><span class="kap">{e(FUAR["duyuru"][L])}</span></a>' + chr(10) + "  <!-- PAZARLAR -->", 1)
+            if ad == "ihracat" and PAZAR:
+                P = PAZAR["metin"]
+                govde = govde.replace("</main>", f'''<section class="bolum bolum-gri"><div class="kap dar">
+  <h2>{e(P["h1"][L])}</h2><p>{e(P["alt"][L])}</p>
+  <p><a class="btn btn-ikincil" href="pazar.html">{e(P["linkMetin"][L])} →</a></p>
+</div></section>
+</main>''')
             if ad == "yurtici" and L == "tr":
                 govde = govde.replace("</main>", '''<section class="bolum"><div class="kap dar">
   <h2>Türkiye'nin 81 iline toptan halı</h2>
@@ -354,7 +364,7 @@ def kaynak_sayfalar():
             sayfa_yaz(L, yol(ad, L), head, govde, ad, alternatif)
 
 ETIKET = {  # sabit küçük metinler (en, tr) – diğer diller ceviri/*.json
-    "home": ("Home", "Ana sayfa"), "urunler": ("Collection", "Ürünler"), "boyut": ("Sizes (cm)", "Ebatlar (cm)"),
+    "home": ("Home", "Ana sayfa"), "ihracat": ("Export", "İhracat"), "urunler": ("Collection", "Ürünler"), "boyut": ("Sizes (cm)", "Ebatlar (cm)"),
     "ozellik": ("Specifications", "Özellikler"), "wa": ("Get info on WhatsApp", "WhatsApp'tan bilgi al"),
     "tumu": ("All products", "Tüm ürünler"), "not": ("Wholesale only. Prices depend on quantity and destination.", "Sadece toptan satış. Fiyat; adet ve ödeme şekline göre değişir."),
     "benzer": ("Similar products", "Benzer ürünler"), "toptan": ("Wholesale", "Toptan"),
@@ -475,8 +485,8 @@ BOLGELER = [
 
 def il81_sayfasi():
     assert sum(len(b[1].split(", ")) for b in BOLGELER) == 81
-    bolumler = "".join(f'<div class="il-bolge"><h2>{b} toptan halı</h2><ul class="il-liste">' +
-                       "".join(f"<li>{il} toptan halı</li>" for il in iller.split(", ")) + "</ul></div>" for b, iller in BOLGELER)
+    bolumler = '<div class="bolgeler">' + "".join(f'<details class="bolge-ac"><summary>{b} toptan halı <small>{len(iller.split(", "))} il</small></summary><ul class="il-liste">' +
+                       "".join(f'<li><a href="{e(wa_link("Merhaba, " + il + " için toptan halı fiyat listesi almak istiyorum."))}" target="_blank" rel="noopener">{il}</a></li>' for il in iller.split(", ")) + "</ul></details>" for b, iller in BOLGELER) + "</div>"
     govde = f'''<main>
   <section class="sayfa-bas"><div class="sayfa-bas-gorsel" style="background-image:url(/img/o/hakkimizda/konteyner-2.webp)"></div>
     <div class="kap sayfa-bas-ic"><p class="yol-iz"><a href="index.html">Ana sayfa</a> / <a href="yurtici.html">Yurt İçi</a> / 81 il</p>
@@ -484,7 +494,7 @@ def il81_sayfasi():
   <section class="bolum bolum-sayfa"><div class="kap dar tanitim">
     <p>Emin Seçilmiş Carpet, Gaziantep Başpınar Organize Sanayi Bölgesi'ndeki deposundan Türkiye'nin 81 iline toptan halı gönderen bir halı toptancısı ve tedarikçisidir. Halı mağazalarına, mobilyacılara, yer döşemesi bayilerine, otellere ve proje firmalarına makine halısı, dijital baskı kaymaz taban halı, rulo halı, sisal ve yapboz halı tedarik ediyoruz.</p>
     <p>Tüm satışlarımız faturalıdır. Siparişler anlaşmalı ambar ve kargo firmalarıyla ilinize gönderilir; kargo ve nakliye ücreti alıcıya aittir. En az sipariş bir balyadır, üst sınır yoktur. Stoktaki ürünler hızlıca, üretim siparişleri ise istediğiniz ebat ve ağırlıkta hazırlanır.</p>
-    <p>Aşağıda hizmet verdiğimiz tüm illeri bölgelere göre bulabilirsiniz. İlinizi ve ihtiyacınızı WhatsApp'tan yazmanız yeterli; size güncel toptan fiyat listesini gönderelim.</p>
+    <p>Aşağıda hizmet verdiğimiz tüm illeri bölgelere göre bulabilirsiniz. <b>Bölgenizi açıp ilinize dokunun</b>, WhatsApp'tan size güncel toptan fiyat listesini gönderelim.</p>
     <div class="butonlar"><a href="#" class="btn btn-wa" data-wa-en="Hello" data-wa-tr="Merhaba, toptan halı fiyat listesi almak istiyorum. İlim: ">WhatsApp'tan fiyat alın</a><a href="urunler.html" class="btn btn-ikincil">Ürünleri gör →</a></div>
     {bolumler}
     <h3 class="sss-baslik">Sık sorulan sorular</h3>
@@ -518,6 +528,42 @@ def fuar_sayfasi():
 </main>'''
         head = bas(L, F["baslik"][L], F["aciklama"][L], yol("fuar", L), alternatif, [ORG])
         sayfa_yaz(L, yol("fuar", L), head, govde, "", alternatif)
+
+def pazar_sayfasi():
+    if not PAZAR: return
+    P, M_ = PAZAR, PAZAR["metin"]
+    kodlar = sorted({k for b in P["bolgeler"] for k in b["ulkeler"]} | set(P["baslica"]))
+    js = "const k=%s,o={};for(const l of %s){o[l]={};for(const c of k)o[l][c]=new Intl.DisplayNames([l],{type:'region'}).of(c)}process.stdout.write(JSON.stringify(o))" % (json.dumps(kodlar), json.dumps(DILLER))
+    UL = json.loads(subprocess.run(["node", "-e", js], capture_output=True, check=True).stdout.decode("utf-8"))
+    sira = P["dil_sirasi"]
+    def cip(ad, L, sinif=""):
+        return f'<li><a{sinif} href="{e(wa_link(M_["wa"][L].replace("{YER}", ad)))}" target="_blank" rel="noopener">{e(ad)}</a></li>'
+    alternatif = {L: yol("pazar", L) for L in DILLER}
+    for L in DILLER:
+        baslica = "".join(cip(UL[L][c], L, ' class="vurgu"') for c in P["baslica"])
+        bolumler = ""
+        for b in P["bolgeler"]:
+            ulk = "".join(cip(UL[L][c], L) for c in b["ulkeler"])
+            seh = "".join(cip(x.split("|")[sira.index(L)], L) for x in b["sehirler"])
+            sayi = f'{e(M_["ulkeler"][L])}: {len(b["ulkeler"])} · {e(M_["sehirler"][L])}: {len(b["sehirler"])}'
+            bolumler += f'''<details class="bolge-ac"><summary>{e(b["ad"][L])} <small>{sayi}</small></summary>
+      <p>{e(b["metin"][L])}</p>
+      <h3 class="pazar-alt">{e(M_["ulkeler"][L])}</h3><ul class="il-liste">{ulk}</ul>
+      <h3 class="pazar-alt">{e(M_["sehirler"][L])}</h3><ul class="il-liste">{seh}</ul></details>'''
+        govde = f'''<main>
+  <section class="sayfa-bas"><div class="sayfa-bas-gorsel" style="background-image:url(/img/o/hakkimizda/konteyner-1.webp)"></div>
+    <div class="kap sayfa-bas-ic"><p class="yol-iz"><a href="index.html">{et("home", L)}</a> / <a href="ihracat.html">{et("ihracat", L)}</a> / {e(M_["link"][L])}</p>
+    <h1>{e(M_["h1"][L])}</h1><p>{e(M_["alt"][L])}</p></div></section>
+  <section class="bolum bolum-sayfa"><div class="kap dar tanitim">
+    <p>{e(M_["giris"][L])}</p>
+    <p class="pazar-ipucu">{e(M_["ipucu"][L])}</p>
+    <div class="il-bolge"><h2>{e(M_["baslica"][L])}</h2><ul class="il-liste">{baslica}</ul></div>
+    <div class="bolgeler">{bolumler}</div>
+    <div class="yazi-cta" style="margin-top:40px"><p>{e(M_["not"][L])}</p><a class="btn btn-wa" href="{e(wa_link(M_["wa"][L].replace("{YER}", "…")))}" target="_blank" rel="noopener">{et("yaz", L)}</a></div>
+  </div></section>
+</main>'''
+        head = bas(L, P["seo"][L][0], P["seo"][L][1], yol("pazar", L), alternatif, [ORG])
+        sayfa_yaz(L, yol("pazar", L), head, govde, "ihracat", alternatif)
 
 def kok_sayfalar():
     # Ana adres: ziyaretçinin diline göre yönlendirir (x-default)
@@ -554,6 +600,7 @@ if __name__ == "__main__":
     blog_sayfalari()
     il81_sayfasi()
     fuar_sayfasi()
+    pazar_sayfasi()
     kok_sayfalar()
     site_haritasi()
     print(f"Tamam: {len(HARITA)} sayfa üretildi.")

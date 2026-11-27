@@ -552,7 +552,13 @@ html[dir="rtl"] details.dil-sec summary { padding: 7px 13px; }
 .il-bolge { margin: 34px 0 0; }
 .il-bolge h2 { font-size: 1.3rem; margin: 0 0 12px; }
 .il-liste { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
-.il-liste li { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: .9rem; }
+.il-liste li { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 999px; font-weight: 600; font-size: .9rem; }
+.il-liste li a { display: block; padding: 6px 14px; color: var(--metin); text-decoration: none; border-radius: 999px; }
+.il-liste li:hover { border-color: var(--wa); }
+.il-liste li a:hover { color: var(--wa); }
+.il-liste li a.vurgu { background: var(--koyu); color: #fff; }
+.pazar-alt { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--soluk); margin: 14px 0 8px; }
+.pazar-ipucu { font-weight: 700; color: var(--vurgu) !important; }
 @media (max-width: 820px) { .urun-sayfa { grid-template-columns: 1fr; gap: 28px; } }
 html[lang="ka"] body { font-family: "Noto Sans Georgian", "Manrope", system-ui, sans-serif; }
 html[lang="ka"] :is(h1, h2, h3, p, span, a, button, li, dt, dd, b, summary) { letter-spacing: 0 !important; }
@@ -560,3 +566,10 @@ html[lang="ka"] :is(h1, h2, h3, p, span, a, button, li, dt, dd, b, summary) { le
 /* Fuar duyuru şeridi (ana sayfa) */
 .fuar-serit { display: block; background: var(--vurgu); color: #fff; text-decoration: none; font-weight: 700; font-size: .95rem; padding: 13px 0; text-align: center; }
 .fuar-serit:hover { filter: brightness(1.08); }
+
+/* Açılır-kapanır bölge listeleri (81 il, ihracat pazarları) */
+.bolgeler { margin-top: 28px; border-top: 1px solid var(--cizgi); }
+.bolge-ac > summary { font-size: 1.15rem; }
+.bolge-ac > summary small { display: block; font-size: .82rem; font-weight: 600; color: var(--soluk); margin-top: 4px; }
+.bolge-ac[open] { padding-bottom: 22px; }
+.bolge-ac .il-liste { padding-bottom: 4px; }
