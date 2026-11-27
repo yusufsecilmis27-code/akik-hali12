@@ -1,0 +1,60 @@
+# "Ürün Ekle" uygulamasından (veya elle) ürün/fotoğraf eklendiğinde:
+# fotoğrafların küçük sürümlerini üretir, 6 dilli sayfaları yeniden oluşturur ve siteyi yayına alır.
+name: Siteyi oluştur
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "js/urunler.js"
+      - "js/diller.js"
+      - "js/ayarlar.js"
+      - "img/seri/**"
+      - "img/spot/**"
+      - "_kaynak/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: site-olustur
+  cancel-in-progress: false
+
+jobs:
+  olustur:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Pillow kur
+        run: pip install pillow
+      - name: Fotoğrafları küçült
+        run: python _kaynak/gorsel_kucult.py
+      - name: Sayfaları oluştur
+        run: python _kaynak/olustur.py
+      - name: Değişiklikleri kaydet
+        id: kaydet
+        run: |
+          git config user.name "Site oluşturucu"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "degisiklik=yok" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Otomatik: sayfalar yeniden oluşturuldu"
+            git push
+            echo "degisiklik=var" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Siteyi yayına al
+        if: steps.kaydet.outputs.degisiklik == 'var'
+        run: |
+          curl -s -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds" || true

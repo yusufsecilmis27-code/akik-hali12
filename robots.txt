@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /_logolar.html
+Disallow: /yonetim/
 
 Sitemap: https://eminsecilmiscarpet.com/sitemap.xml

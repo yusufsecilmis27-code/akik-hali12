@@ -415,8 +415,7 @@ def urun_sayfalari():
         <p class="detay-kod">{u["kod"]}</p>
         <p class="detay-aciklama">{e(urun_aciklama(u, L))}</p>
         <p>{e(et("slogan", L))}</p>
-        <h2>{et("boyut", L)}</h2>
-        <ul class="ebat-liste">{ebat}</ul>
+        {f'<h2>{et("boyut", L)}</h2><ul class="ebat-liste">{ebat}</ul>' if ebat else ""}
         {f'<h2>{et("ozellik", L)}</h2><dl class="ozellik">{ozel}</dl>' if ozel else ""}
         <div class="detay-butonlar">
           <a class="btn btn-wa" href="{e(wa_link(DILV[L]["wa"].replace("{U}", ad + " (" + u["kod"] + ")")))}" target="_blank" rel="noopener">{et("wa", L)}</a>
