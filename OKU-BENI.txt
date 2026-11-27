@@ -1,3 +1,20 @@
+SİTE ARTIK 6 DİLLİ VE OTOMATİK OLUŞTURULUYOR (Kasım 2026)
+Diller: Türkçe (/tr/), İngilizce (/en/), Arapça (/ar/), Rusça (/ru/), Fransızca (/fr/), Gürcüce (/ka/).
+Sayfaların asıl kaynakları _kaynak klasöründedir (bu klasör internette yayınlanmaz).
+/tr/, /en/ ... klasörleri, kökteki index.html / urunler.html ... yönlendirmeleri ve sitemap.xml
+OTOMATİK üretilir, elle düzenlemeyin.
+
+Bir şeyi değiştirdikten sonra site klasöründe şunu çalıştırın:
+    python _kaynak/olustur.py
+  - Sayfa metinleri:            _kaynak/index.html, urunler.html, ihracat.html ... (data-l="tr" / data-l="en")
+  - Menü ve sayfa altı:         _kaynak/_ortak.html
+  - Google başlık/açıklamaları: _kaynak/seo.json
+  - Blog yazıları (6 dil):      _kaynak/blog.json
+  - RU/FR/KA/AR çevirileri:     _kaynak/ceviri/coklu-*.json
+  - Ürün çevirileri:            js/diller.js
+  Çevirisi eksik metin olursa betik sonunda listelenir; o metin İngilizce görünür.
+  (Aşağıdaki eski notlarda geçen js/sablon.js artık kullanılmıyor.)
+
 SİTEYİ KENDİNİZE GÖRE DÜZENLEME
 
 Sayfalar: index.html (ana sayfa), urunler.html, ihracat.html, yurtici.html,

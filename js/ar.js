@@ -11,6 +11,7 @@ const AR = {
   "Domestic": "السوق المحلي",
   "About": "من نحن",
   "Contact": "اتصل بنا",
+  "Blog": "المدونة",
   "Looking for a reliable carpet supplier?": "هل تبحث عن مورّد سجاد موثوق؟",
   "Write on WhatsApp": "راسلنا عبر واتساب",
   "Wholesale carpets from Türkiye. Serving you for over 10 years.": "سجاد بالجملة من تركيا. في خدمتكم منذ أكثر من 10 سنوات.",
